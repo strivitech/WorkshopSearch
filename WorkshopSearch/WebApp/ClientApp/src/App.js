@@ -1,22 +1,26 @@
-import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
-
-export default class App extends Component {
-  static displayName = App.name;
-
-  render() {
-    return (
-      <Layout>
-        <Routes>
-          {AppRoutes.map((route, index) => {
-            const { element, ...rest } = route;
-            return <Route key={index} {...rest} element={element} />;
-          })}
-        </Routes>
-      </Layout>
-    );
-  }
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Navbar, Sidebar, Footer } from './components'
+import {
+  Home,
+  SingleProduct,
+  Error,
+  Products,
+} from './pages'
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Sidebar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='workshops' element={<Products />} />
+        <Route path='workshops/:id' element={<SingleProduct />} />
+        <Route path='error' element={<Error />} />
+      </Routes>
+      <Footer />
+    </Router>
+  )
 }
+
+export default App
