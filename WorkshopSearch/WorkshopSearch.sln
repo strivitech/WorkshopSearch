@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{6825F1AC-8C02-4A45-8A77-7A103943AA0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOPSIS", "TOPSIS\TOPSIS.csproj", "{155C2A94-049E-4E6C-8347-8210CEEB1109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{6825F1AC-8C02-4A45-8A77-7A103943AA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6825F1AC-8C02-4A45-8A77-7A103943AA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6825F1AC-8C02-4A45-8A77-7A103943AA0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{155C2A94-049E-4E6C-8347-8210CEEB1109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155C2A94-049E-4E6C-8347-8210CEEB1109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155C2A94-049E-4E6C-8347-8210CEEB1109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155C2A94-049E-4E6C-8347-8210CEEB1109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
