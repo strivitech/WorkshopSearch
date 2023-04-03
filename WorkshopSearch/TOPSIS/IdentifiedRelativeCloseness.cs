@@ -6,7 +6,7 @@ public class IdentifiedRelativeCloseness<TIdentifier>
 
     public double RelativeCloseness { get; }
 
-    public IdentifiedRelativeCloseness(TIdentifier identifier, double relativeCloseness)
+    internal IdentifiedRelativeCloseness(TIdentifier identifier, double relativeCloseness)
     {
         Identifier = identifier;
         RelativeCloseness = relativeCloseness;

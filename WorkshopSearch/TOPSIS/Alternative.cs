@@ -8,7 +8,7 @@ public class Alternative<TIdentifier>
 
     public Alternative(TIdentifier identifier, List<double> values)
     {
-        Identifier = identifier;
-        Values = values;
+        Identifier = identifier ?? throw new ArgumentNullException(nameof(identifier));
+        Values = values ?? throw new ArgumentNullException(nameof(values));
     }
 }
