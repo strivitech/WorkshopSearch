@@ -6,7 +6,7 @@ public class TopsisWorker<TIdentifier>
 
     public TopsisWorker(WorkingTable<TIdentifier> workingTable)
     {
-        _workingTable = workingTable;
+        _workingTable = workingTable ?? throw new ArgumentNullException(nameof(workingTable));
     }
 
     public List<IdentifiedRelativeCloseness<TIdentifier>> GetRelativeClosenessToIdealSolution()

@@ -28,6 +28,7 @@ public class WorkingTable<TIdentifier>
 
     public WorkingTable<TIdentifier> AddAlternatives(ICollection<Alternative<TIdentifier>> alternatives)
     {
+        ArgumentNullException.ThrowIfNull(alternatives);
         foreach (var alternative in alternatives)
         {
             ValidateAlternative(alternative, Criteria.Count);
@@ -55,6 +56,7 @@ public class WorkingTable<TIdentifier>
 
         public WorkingTable<TIdentifier> AddAlternatives(ICollection<Alternative<TIdentifier>> alternatives)
         {
+            ArgumentNullException.ThrowIfNull(alternatives);
             foreach (var alternative in alternatives)
             {
                 ValidateAlternative(alternative, _workingTable.Criteria.Count);
@@ -66,6 +68,7 @@ public class WorkingTable<TIdentifier>
 
     private static void ValidateAlternative(Alternative<TIdentifier> alternative, int criteriaCount)
     {
+        ArgumentNullException.ThrowIfNull(alternative);
         if (alternative.Values.Count != criteriaCount)
         {
             throw new InvalidOperationException("Alternative has invalid number of values, based on criteria count");
@@ -75,6 +78,10 @@ public class WorkingTable<TIdentifier>
     public static IWorkingTableAlternatives<TIdentifier> Create(ICollection<Criteria> criteria,
         ICollection<Direction> directions, ICollection<Weight> weights)
     {
+        ArgumentNullException.ThrowIfNull(criteria);
+        ArgumentNullException.ThrowIfNull(directions);
+        ArgumentNullException.ThrowIfNull(weights);
+        
         if (criteria.Count == directions.Count && directions.Count == weights.Count)
         {
             return new Implementation(criteria, directions, weights);
