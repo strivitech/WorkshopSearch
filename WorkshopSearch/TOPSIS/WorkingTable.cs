@@ -1,11 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-
-namespace TOPSIS;
+﻿namespace TOPSIS;
 
 public class WorkingTable<TIdentifier>
 {
-    private readonly ObservableCollection<Alternative<TIdentifier>> _observableAlternatives = new();
+    private readonly List<Alternative<TIdentifier>> _alternatives = new();
 
     public IReadOnlyList<Criteria> Criteria { get; }
 
@@ -13,21 +10,19 @@ public class WorkingTable<TIdentifier>
 
     public IReadOnlyList<Weight> Weights { get; }
     
-    public IReadOnlyList<Alternative<TIdentifier>> Alternatives { get; private set; } =
-        new List<Alternative<TIdentifier>>().AsReadOnly();
+    public IReadOnlyList<Alternative<TIdentifier>> Alternatives => _alternatives.AsReadOnly();
 
     private WorkingTable(IEnumerable<Criteria> criteria, IEnumerable<Direction> directions, IEnumerable<Weight> weights)
     {
         Criteria = criteria.ToList().AsReadOnly();
         Directions = directions.ToList().AsReadOnly();
         Weights = weights.ToList().AsReadOnly();
-        _observableAlternatives.CollectionChanged += OnAlternativesChanged;
     }
 
     public WorkingTable<TIdentifier> AddAlternative(Alternative<TIdentifier> alternative)
     {
         ValidateAlternative(alternative, Criteria.Count);
-        _observableAlternatives.Add(alternative);
+        _alternatives.Add(alternative);
         return this;
     }
 
@@ -37,7 +32,7 @@ public class WorkingTable<TIdentifier>
         {
             ValidateAlternative(alternative, Criteria.Count);
         }
-        _observableAlternatives.AddRange(alternatives);
+        _alternatives.AddRange(alternatives);
         return this;
     }
 
@@ -54,7 +49,7 @@ public class WorkingTable<TIdentifier>
         public WorkingTable<TIdentifier> AddAlternative(Alternative<TIdentifier> alternative)
         {
             ValidateAlternative(alternative, _workingTable.Criteria.Count);
-            _workingTable._observableAlternatives.Add(alternative);
+            _workingTable._alternatives.Add(alternative);
             return _workingTable;
         }
 
@@ -64,14 +59,9 @@ public class WorkingTable<TIdentifier>
             {
                 ValidateAlternative(alternative, _workingTable.Criteria.Count);
             }
-            _workingTable._observableAlternatives.AddRange(alternatives);
+            _workingTable._alternatives.AddRange(alternatives);
             return _workingTable;
         }
-    }
-
-    private void OnAlternativesChanged(object? sender, NotifyCollectionChangedEventArgs e)
-    {
-        Alternatives = _observableAlternatives.AsReadOnly();
     }
 
     private static void ValidateAlternative(Alternative<TIdentifier> alternative, int criteriaCount)
