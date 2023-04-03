@@ -9,7 +9,7 @@ public class WorkingTable<TIdentifier>
     public IReadOnlyList<Direction> Directions { get; }
 
     public IReadOnlyList<Weight> Weights { get; }
-    
+
     public IReadOnlyList<Alternative<TIdentifier>> Alternatives => _alternatives.AsReadOnly();
 
     private WorkingTable(IEnumerable<Criteria> criteria, IEnumerable<Direction> directions, IEnumerable<Weight> weights)
@@ -33,6 +33,7 @@ public class WorkingTable<TIdentifier>
         {
             ValidateAlternative(alternative, Criteria.Count);
         }
+
         _alternatives.AddRange(alternatives);
         return this;
     }
@@ -61,6 +62,7 @@ public class WorkingTable<TIdentifier>
             {
                 ValidateAlternative(alternative, _workingTable.Criteria.Count);
             }
+
             _workingTable._alternatives.AddRange(alternatives);
             return _workingTable;
         }
@@ -78,15 +80,41 @@ public class WorkingTable<TIdentifier>
     public static IWorkingTableAlternatives<TIdentifier> Create(ICollection<Criteria> criteria,
         ICollection<Direction> directions, ICollection<Weight> weights)
     {
+        ValidateInput(criteria, directions, weights);
+
+        return new Implementation(criteria, directions, weights);
+    }
+
+    private static void ValidateInput(ICollection<Criteria> criteria, ICollection<Direction> directions, ICollection<Weight> weights)
+    {
         ArgumentNullException.ThrowIfNull(criteria);
         ArgumentNullException.ThrowIfNull(directions);
         ArgumentNullException.ThrowIfNull(weights);
         
-        if (criteria.Count == directions.Count && directions.Count == weights.Count)
+        ValidateCounts(criteria, directions, weights);
+        ValidateWeights(weights);
+    }
+
+    private static void ValidateCounts(ICollection<Criteria> criteria, ICollection<Direction> directions,
+        ICollection<Weight> weights)
+    {
+        if (criteria.Count != directions.Count || directions.Count != weights.Count)
         {
-            return new Implementation(criteria, directions, weights);
+            throw new ArgumentException("Invalid arguments, all collections must have the same length");
         }
-        
-        throw new ArgumentException("Invalid arguments, all collections must have the same length");
+    }
+    
+    private static void ValidateWeights(ICollection<Weight> weights)
+    {
+        if (weights.Any(weight => weight.Value < 0))
+        {
+            throw new ArgumentException("Weights must be positive");
+        }
+
+        const double epsilon = 0.0001;    
+        if (Math.Abs(weights.Sum(weight => weight.Value) - 1) > epsilon)
+        {
+            throw new ArgumentException("Weights must sum up to 1");
+        }
     }
 }
