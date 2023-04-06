@@ -1,27 +1,33 @@
+using System.Diagnostics;
+using System.Text.Json;
+using WebApp;
+using WebApp.Features.Directions;
+using WebApp.Features.Workshops;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
 
+builder.ConfigureServices();
 var app = builder.Build();
+app.Configure();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+try
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    // Add logs
+    app.AddDirections();
+    app.AddWorkshops();
+
+    app.Run();
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
-
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
-
-app.MapFallbackToFile("index.html");
-
-app.Run();
+catch (Exception ex)
+{
+    // Add logs
+    // Debug.WriteLine(JsonSerializer.Serialize(ex));
+}
+finally
+{
+    // Add logs and flush
+}
