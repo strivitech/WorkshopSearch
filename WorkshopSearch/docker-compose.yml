@@ -1,0 +1,14 @@
+version: '3.5'
+name: WSearch
+
+services:
+  wsearch_main:
+    image: postgres:14.5
+    container_name: wsearch_main
+    restart: always
+    environment:
+      - POSTGRES_DB=wsearch_main
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - 5532:5432
