@@ -17,6 +17,8 @@ public static class Startup
         var services = builder.Services;
         var configuration = builder.Configuration;
         
+        builder.Services.AddSwaggerGen();
+        
         services.AddDbContext<ApplicationDbContext>(options =>
             options
                 .UseNpgsql(
@@ -34,8 +36,8 @@ public static class Startup
     {
         if (app.Environment.IsDevelopment())
         {
-            // app.UseSwagger();
-            // app.UseSwaggerUI();
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
 
         app.UseExceptionHandler("/error");
