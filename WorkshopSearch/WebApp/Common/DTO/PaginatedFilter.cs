@@ -7,10 +7,14 @@ public class PaginatedFilter
     public const int DefaultSize = 6;
     public const int MaxSize = 100;
     
+    public const int DefaultFrom = MinFrom;
+    public const int MinFrom = 1;
+    public const int MaxFrom = int.MaxValue;
+    
     private int _size = DefaultSize;
 
-    [Range(0, int.MaxValue)]
-    public int From { get; set; } = 0;
+    [Range(MinFrom, MaxFrom)]
+    public int From { get; set; } = DefaultFrom;
     
     public int Size
     {
