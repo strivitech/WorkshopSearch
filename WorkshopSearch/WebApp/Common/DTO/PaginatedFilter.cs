@@ -2,7 +2,7 @@
 
 namespace WebApp.Common.DTO;
 
-public class FilterBase
+public class PaginatedFilter
 {
     public const int DefaultSize = 6;
     public const int MaxSize = 100;

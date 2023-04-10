@@ -6,7 +6,7 @@ using Filter = WebApp.Features.Workshops.WorkshopDataConstants.Filter;
 
 namespace WebApp.Features.Workshops;
 
-public class WorkshopFilter : FilterBase
+public class WorkshopFilter : PaginatedFilter
 {
     [MaxLength(Filter.MaxTextLength)]
     public string? Text { get; set; }
