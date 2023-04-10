@@ -1,4 +1,5 @@
-﻿using WebApp.Database.Main;
+﻿using WebApp.Common.Data;
+using WebApp.Database.Main;
 using WebApp.Features.Directions;
 
 namespace WebApp.Features.Workshops;
@@ -39,14 +40,16 @@ public static class WorkshopsSeeder
             Constrains = new WorkshopConstrains(
                 MinAge: 1,
                 MaxAge: 99,
-                Price: 100
+                Price: 100,
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday
             ),
             Address = "Address 1",
             ImageUris = new List<string>
                 { "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
             Description = "Description 1",
             Owner = "Owner 1",
-            Directions = new List<Direction> { directions[0], directions[1] }
+            Directions = new List<Direction> { directions[0], directions[1] },
+            CoverImageUri = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
         },
         new()
         {
@@ -62,14 +65,16 @@ public static class WorkshopsSeeder
             Constrains = new WorkshopConstrains(
                 MinAge: 10,
                 MaxAge: 60,
-                Price: 150
+                Price: 150,
+                Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday
             ),
             Address = "Address 2",
             ImageUris = new List<string>
                 { "https://www.example.com/images/workshop2.jpg" },
             Description = "Description 2",
             Owner = "Owner 2",
-            Directions = new List<Direction> { directions[0], directions[1], directions[2] }
+            Directions = new List<Direction> { directions[0], directions[1], directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop2.jpg"
         },
         new()
         {
@@ -85,14 +90,16 @@ public static class WorkshopsSeeder
             Constrains = new WorkshopConstrains(
                 MinAge: 18,
                 MaxAge: 30,
-                Price: 200
+                Price: 200,
+                Days: DaysBitMask.Sunday
             ),
             Address = "Address 3",
             ImageUris = new List<string>
                 { "https://www.example.com/images/workshop3.jpg" },
             Description = "Description 3",
             Owner = "Owner 3",
-            Directions = new List<Direction> { directions[0] }
+            Directions = new List<Direction> { directions[0] },
+            CoverImageUri = "https://www.example.com/images/workshop3.jpg"
         },
         new()
         {
@@ -108,14 +115,16 @@ public static class WorkshopsSeeder
             Constrains = new WorkshopConstrains(
                 MinAge: 12,
                 MaxAge: 50,
-                Price: 250
+                Price: 250,
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday
             ),
             Address = "Address 4",
             ImageUris = new List<string>
                 { "https://www.example.com/images/workshop4.jpg" },
             Description = "Description 4",
             Owner = "Owner 4",
-            Directions = new List<Direction> { directions[0] }
+            Directions = new List<Direction> { directions[0] },
+            CoverImageUri = "https://www.example.com/images/workshop4.jpg"
         },
         new()
         {
@@ -131,14 +140,16 @@ public static class WorkshopsSeeder
             Constrains = new WorkshopConstrains(
                 MinAge: 15,
                 MaxAge: 70,
-                Price: 300
+                Price: 300,
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday
             ),
             Address = "Address 5",
             ImageUris = new List<string>
                 { "https://www.example.com/images/workshop5.jpg" },
             Description = "Description 5",
             Owner = "Owner 5",
-            Directions = new List<Direction> { directions[2] }
+            Directions = new List<Direction> { directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop5.jpg"
         },
     };
 }

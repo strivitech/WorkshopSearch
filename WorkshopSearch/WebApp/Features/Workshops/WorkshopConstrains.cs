@@ -1,3 +1,5 @@
-﻿namespace WebApp.Features.Workshops;
+﻿using WebApp.Common.Data;
 
-public record WorkshopConstrains(int MinAge, int MaxAge, decimal Price);
+namespace WebApp.Features.Workshops;
+
+public record WorkshopConstrains(int MinAge, int MaxAge, decimal Price, DaysBitMask Days);

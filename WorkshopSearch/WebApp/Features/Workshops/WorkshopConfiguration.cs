@@ -53,6 +53,8 @@ public class WorkshopConfiguration : IEntityTypeConfiguration<Workshop>
                 x => string.Join(',', x),
                 x => x.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList())
             .Metadata.SetValueComparer(StringListValueComparer());
+        
+        builder.Property(x => x.CoverImageUri).HasMaxLength(ImageUrisMaxLength).IsRequired();
 
         builder.HasMany(x => x.Directions)
             .WithMany();

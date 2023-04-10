@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApp.Database.Main;
+using WebApp.Features.Workshops;
 
 namespace WebApp;
 
@@ -18,14 +19,15 @@ public static class Startup
         var configuration = builder.Configuration;
         
         builder.Services.AddSwaggerGen();
-        
+
         services.AddDbContext<ApplicationDbContext>(options =>
             options
                 .UseNpgsql(
                     configuration.GetConnectionString("DefaultConnection"),
                     optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-        
-        
+
+        services.AddScoped<IWorkshopFilterExpressionBuilder, WorkshopFilterExpressionBuilder>();
+        services.AddScoped<IWorkshopService, WorkshopService>();
     }
 
     /// <summary>
