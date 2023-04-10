@@ -5,22 +5,25 @@ namespace WebApp.Features.Workshops;
 
 public class WorkshopService : IWorkshopService
 {
-    private readonly IWorkshopExpressionBuilder _expressionBuilder;
+    private readonly IWorkshopFilterExpressionBuilder _filterExpressionBuilder;
     private readonly ApplicationDbContext _dbContext;
 
-    public WorkshopService(IWorkshopExpressionBuilder expressionBuilder, ApplicationDbContext dbContext)
+    public WorkshopService(IWorkshopFilterExpressionBuilder filterExpressionBuilder, ApplicationDbContext dbContext)
     {
-        _expressionBuilder = expressionBuilder;
+        _filterExpressionBuilder = filterExpressionBuilder;
         _dbContext = dbContext;
     }
     
     public async Task<IList<ShortWorkshopResponse>> GetByFilterAsync(WorkshopFilter filter)
     {
-        var query = _expressionBuilder.BuildQuery(filter);
+        var expression = _filterExpressionBuilder.BuildExpression(filter);
         var workshops = await _dbContext.Workshops
             .Include(x => x.Directions)
-            .Where(query)
+            .Where(expression)
+            .Skip((filter.From - 1) * filter.Size)
+            .Take(filter.Size)
             .ToListAsync();
+        
         return workshops.ToShortWorkshopResponse();
     }
 }
