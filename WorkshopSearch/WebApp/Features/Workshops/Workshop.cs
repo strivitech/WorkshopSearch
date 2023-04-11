@@ -15,9 +15,8 @@ public class Workshop : BaseEntity<WorkshopId>
     public List<Direction> Directions{ get; set; } = null!;
     public string Description { get; set; } = null!;
     public string Owner { get; set; } = null!;
-    
     public float Rating { get; set; }
-    
     public int ReviewsCount { get; set; }
+    public EnrollmentStatus EnrollmentStatus { get; set; }
     public string CoverImageUri { get; set; } = null!;
 }

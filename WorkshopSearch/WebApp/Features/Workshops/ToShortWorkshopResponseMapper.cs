@@ -15,6 +15,7 @@ public static class ToShortWorkshopResponseMapper
             Address = workshop.Address,
             Rating = workshop.Rating,
             ReviewsCount = workshop.ReviewsCount,
+            EnrollmentStatus = workshop.EnrollmentStatus,
             CoverImageUri = workshop.CoverImageUri,
         };
     }
