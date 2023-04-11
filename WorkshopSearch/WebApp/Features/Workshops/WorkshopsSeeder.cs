@@ -144,7 +144,7 @@ public static class WorkshopsSeeder
             Constrains = new WorkshopConstrains(
                 MinAge: 15,
                 MaxAge: 70,
-                Price: 300,
+                Price: 0,
                 Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
                 DaysCount: 3
             ),
