@@ -20,9 +20,9 @@ internal sealed class AlternativesNormalizer<TIdentifier> : IAlternativesNormali
 
     private List<double> GetSqrtOfSumSquaresByCriteria()
     {
-        var sumOfSquaresList = Enumerable.Repeat(0.0, 5).ToList();
         var criteriaCount = _alternatives.First().Values.Count;
-        
+        var sumOfSquaresList = Enumerable.Repeat(0.0, criteriaCount).ToList();
+
         foreach (var alternative in _alternatives)
         {
             for (var i = 0; i < criteriaCount; i++)
