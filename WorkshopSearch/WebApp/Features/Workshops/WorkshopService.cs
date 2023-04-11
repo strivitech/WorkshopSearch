@@ -84,7 +84,7 @@ public class WorkshopService : IWorkshopService
             .Include(x => x.Directions)
             .Where(expression)
             .Select(x => new WorkshopAnalysisModel(x.Id.Value, x.Constrains.MinAge,
-                x.Constrains.MaxAge, x.Constrains.Price, x.Constrains.DaysCount, x.Rating, x.ReviewsCount))
+                x.Constrains.MaxAge, x.Constrains.Price, x.Constrains.DaysCount, x.Rating, x.ReviewsCount, x.EnrollmentStatus))
             .ToListAsync();
 
         return workshops;
