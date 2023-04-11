@@ -13,6 +13,7 @@ public class WorkshopConfiguration : IEntityTypeConfiguration<Workshop>
     private const int EmailMaxLength = 50;
     private const int PhoneNumberMaxLength = 20;
     private const int ImageUrisMaxLength = 1000;
+    private const int RatingMaxLength = 5;
 
     public void Configure(EntityTypeBuilder<Workshop> builder)
     {
@@ -27,6 +28,7 @@ public class WorkshopConfiguration : IEntityTypeConfiguration<Workshop>
         builder.Property(x => x.Address).HasMaxLength(AddressMaxLength).IsRequired();
         builder.Property(x => x.Description).HasMaxLength(DescriptionMaxLength).IsRequired();
         builder.Property(x => x.Owner).HasMaxLength(OwnerMaxLength).IsRequired();
+        builder.Property(x => x.Rating).HasMaxLength(RatingMaxLength);
         
         builder.OwnsOne(x => x.ContactInformation,
             ownedBuilder =>

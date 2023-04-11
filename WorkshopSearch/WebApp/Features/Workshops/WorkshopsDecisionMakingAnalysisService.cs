@@ -35,7 +35,9 @@ public class WorkshopsDecisionMakingAnalysisService : IWorkshopsDecisionMakingAn
                     wam.MinAge,
                     wam.MaxAge,
                     wam.DaysCount,
-                    (double)wam.Price
+                    (double)wam.Price,
+                    wam.Rating,
+                    wam.ReviewsCount
                 })).ToArray());
 
         return workingTable;

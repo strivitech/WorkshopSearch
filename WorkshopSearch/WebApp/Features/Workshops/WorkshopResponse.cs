@@ -18,6 +18,8 @@ public class WorkshopResponse
     public List<DirectionDto> Directions { get; set; } = null!;
     public string Description { get; set; } = null!;
     public string Owner { get; set; } = null!;
+    public float Rating { get; set; }
+    public int ReviewsCount { get; set; }
     public string? CoverImageUri { get; set; }
     public List<string> Days { get; set; } = null!;
 }
