@@ -7,8 +7,6 @@ namespace WebApp.Common.Data;
 [Flags]
 public enum DaysBitMask : byte
 {
-    None = 0,
-    [EnumMember(Value = nameof(Monday))]
     Monday = 1,
     [EnumMember(Value = nameof(Tuesday))]
     Tuesday = 2,

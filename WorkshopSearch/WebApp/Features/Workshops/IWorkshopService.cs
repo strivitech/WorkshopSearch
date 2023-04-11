@@ -2,5 +2,7 @@
 
 public interface IWorkshopService
 {
-    Task<IList<ShortWorkshopResponse>> GetByFilterAsync(WorkshopFilter filter);
+    Task<List<ShortWorkshopResponse>> GetByFilterAsync(WorkshopFilter filter);
+    
+    Task<List<ShortWorkshopResponse>> GetByDecisionMakingAnalysisAsync(WorkshopFilter filter);
 }

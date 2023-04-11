@@ -19,5 +19,5 @@ public class WorkshopResponse
     public string Description { get; set; } = null!;
     public string Owner { get; set; } = null!;
     public string? CoverImageUri { get; set; }
-    public List<DaysBitMask> Days { get; set; } = null!;
+    public List<string> Days { get; set; } = null!;
 }

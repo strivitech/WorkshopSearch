@@ -28,6 +28,8 @@ public static class Startup
 
         services.AddScoped<IWorkshopFilterExpressionBuilder, WorkshopFilterExpressionBuilder>();
         services.AddScoped<IWorkshopService, WorkshopService>();
+        services.AddScoped<IWorkshopsDecisionMakingAnalysisService, WorkshopsDecisionMakingAnalysisService>();
+        services.AddScoped<WorkshopAnalysisMetadata>();
     }
 
     /// <summary>

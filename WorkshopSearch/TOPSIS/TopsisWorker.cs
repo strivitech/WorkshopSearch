@@ -1,6 +1,6 @@
 ﻿namespace TOPSIS;
 
-public class TopsisWorker<TIdentifier>
+public class TopsisWorker<TIdentifier> : ITopsisWorker<TIdentifier>
 {
     private readonly WorkingTable<TIdentifier> _workingTable;
 
@@ -9,7 +9,7 @@ public class TopsisWorker<TIdentifier>
         _workingTable = workingTable ?? throw new ArgumentNullException(nameof(workingTable));
     }
 
-    public List<IdentifiedRelativeCloseness<TIdentifier>> GetRelativeClosenessToIdealSolution()
+    public List<IdentifiedRelativeCloseness<TIdentifier>> GetOrderingByRelativeClosenessToIdealSolution()
     {
         var weightedNormalizedAlternatives = GetWeightedNormalizedAlternatives();
         var idealSolutionFinder = GetPositiveIdealSolutionFinder(weightedNormalizedAlternatives);
@@ -23,7 +23,7 @@ public class TopsisWorker<TIdentifier>
             negativeIdealSolutionList
         );
 
-        return distanceScopes.CalculateProximity();
+        return distanceScopes.OrderByCalculatedProximityDesc();
     }
 
     private List<Alternative<TIdentifier>> GetWeightedNormalizedAlternatives()

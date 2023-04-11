@@ -41,7 +41,8 @@ public static class WorkshopsSeeder
                 MinAge: 1,
                 MaxAge: 99,
                 Price: 100,
-                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
+                DaysCount: 3
             ),
             Address = "Address 1",
             ImageUris = new List<string>
@@ -66,7 +67,8 @@ public static class WorkshopsSeeder
                 MinAge: 10,
                 MaxAge: 60,
                 Price: 150,
-                Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday
+                Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday,
+                DaysCount: 3
             ),
             Address = "Address 2",
             ImageUris = new List<string>
@@ -91,7 +93,8 @@ public static class WorkshopsSeeder
                 MinAge: 18,
                 MaxAge: 30,
                 Price: 200,
-                Days: DaysBitMask.Sunday
+                Days: DaysBitMask.Sunday,
+                DaysCount: 1
             ),
             Address = "Address 3",
             ImageUris = new List<string>
@@ -116,7 +119,8 @@ public static class WorkshopsSeeder
                 MinAge: 12,
                 MaxAge: 50,
                 Price: 250,
-                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
+                DaysCount: 3
             ),
             Address = "Address 4",
             ImageUris = new List<string>
@@ -140,8 +144,9 @@ public static class WorkshopsSeeder
             Constrains = new WorkshopConstrains(
                 MinAge: 15,
                 MaxAge: 70,
-                Price: 300,
-                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday
+                Price: 0,
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
+                DaysCount: 3
             ),
             Address = "Address 5",
             ImageUris = new List<string>
