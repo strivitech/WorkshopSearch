@@ -13,6 +13,8 @@ public static class ToShortWorkshopResponseMapper
             MaxAge = workshop.Constrains.MaxAge,
             Price = workshop.Constrains.Price,
             Address = workshop.Address,
+            Rating = workshop.Rating,
+            ReviewsCount = workshop.ReviewsCount,
             CoverImageUri = workshop.CoverImageUri,
         };
     }
