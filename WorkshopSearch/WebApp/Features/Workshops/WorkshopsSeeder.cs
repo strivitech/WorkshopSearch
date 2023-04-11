@@ -51,6 +51,7 @@ public static class WorkshopsSeeder
             Owner = "Owner 1",
             Rating = 4.5f,
             ReviewsCount = 10,
+            EnrollmentStatus = EnrollmentStatus.Open,
             Directions = new List<Direction> { directions[0], directions[1] },
             CoverImageUri = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
         },
@@ -79,6 +80,7 @@ public static class WorkshopsSeeder
             Owner = "Owner 2",
             Rating = 3.5f,
             ReviewsCount = 5,
+            EnrollmentStatus = EnrollmentStatus.Closed,
             Directions = new List<Direction> { directions[0], directions[1], directions[2] },
             CoverImageUri = "https://www.example.com/images/workshop2.jpg"
         },
@@ -107,6 +109,7 @@ public static class WorkshopsSeeder
             Owner = "Owner 3",
             Rating = 5f,
             ReviewsCount = 1,
+            EnrollmentStatus = EnrollmentStatus.Closed,
             Directions = new List<Direction> { directions[0] },
             CoverImageUri = "https://www.example.com/images/workshop3.jpg"
         },
@@ -135,6 +138,7 @@ public static class WorkshopsSeeder
             Owner = "Owner 4",
             Rating = 4f,
             ReviewsCount = 2,
+            EnrollmentStatus = EnrollmentStatus.Open,
             Directions = new List<Direction> { directions[0] },
             CoverImageUri = "https://www.example.com/images/workshop4.jpg"
         },
@@ -163,6 +167,7 @@ public static class WorkshopsSeeder
             Owner = "Owner 5",
             Rating = 3f,
             ReviewsCount = 3,
+            EnrollmentStatus = EnrollmentStatus.Open,
             Directions = new List<Direction> { directions[2] },
             CoverImageUri = "https://www.example.com/images/workshop5.jpg"
         },

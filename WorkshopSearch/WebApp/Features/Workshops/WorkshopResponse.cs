@@ -20,6 +20,7 @@ public class WorkshopResponse
     public string Owner { get; set; } = null!;
     public float Rating { get; set; }
     public int ReviewsCount { get; set; }
+    public EnrollmentStatus EnrollmentStatus { get; set; }
     public string? CoverImageUri { get; set; }
     public List<string> Days { get; set; } = null!;
 }

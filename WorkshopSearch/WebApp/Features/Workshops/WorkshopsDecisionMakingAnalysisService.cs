@@ -37,9 +37,20 @@ public class WorkshopsDecisionMakingAnalysisService : IWorkshopsDecisionMakingAn
                     wam.DaysCount,
                     (double)wam.Price,
                     wam.Rating,
-                    wam.ReviewsCount
+                    wam.ReviewsCount,
+                    ConvertEnrollmentStatus(wam.EnrollmentStatus)
                 })).ToArray());
 
         return workingTable;
+
+        double ConvertEnrollmentStatus(EnrollmentStatus enrollmentStatus)
+        {
+            return enrollmentStatus switch
+            {
+                EnrollmentStatus.Open => 1,
+                EnrollmentStatus.Closed => 0,
+                _ => throw new ArgumentOutOfRangeException(nameof(enrollmentStatus), "Unknown enrollment status")
+            };
+        }
     }
 }

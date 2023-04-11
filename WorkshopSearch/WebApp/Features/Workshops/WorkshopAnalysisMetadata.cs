@@ -13,6 +13,7 @@ public class WorkshopAnalysisMetadata
             new Criteria(nameof(WorkshopAnalysisModel.Price)),
             new Criteria(nameof(WorkshopAnalysisModel.Rating)),
             new Criteria(nameof(WorkshopAnalysisModel.ReviewsCount)),
+            new Criteria(nameof(WorkshopAnalysisModel.EnrollmentStatus))
         };
 
     public virtual List<Direction> GetDirections =>
@@ -24,6 +25,7 @@ public class WorkshopAnalysisMetadata
             new Direction(DirectionValue.Minimize),
             new Direction(DirectionValue.Maximize),
             new Direction(DirectionValue.Maximize),
+            new Direction(DirectionValue.Maximize)
         };
 
     public virtual List<Weight> GetWeights =>
@@ -32,8 +34,9 @@ public class WorkshopAnalysisMetadata
             new Weight(0.05),
             new Weight(0.05),
             new Weight(0.1),
+            new Weight(0.25),
             new Weight(0.3),
-            new Weight(0.4),
             new Weight(0.1),
+            new Weight(0.15)
         };
 }

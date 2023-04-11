@@ -9,9 +9,8 @@ public class ShortWorkshopResponse
     public int MaxAge { get; set; }
     public decimal Price { get; set; }
     public string Address { get; set; } = null!;
-    
     public float Rating { get; set; }
-    
     public int ReviewsCount { get; set; }
+    public EnrollmentStatus EnrollmentStatus { get; set; }
     public string CoverImageUri { get; set; } = null!;
 }
