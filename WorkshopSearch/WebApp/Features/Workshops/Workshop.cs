@@ -1,4 +1,5 @@
 ﻿using WebApp.Common.Data.Entities;
+using WebApp.Common.Data.ValueObjects;
 using WebApp.Features.Directions;
 
 namespace WebApp.Features.Workshops;
@@ -10,7 +11,7 @@ public class Workshop : BaseEntity<WorkshopId>
     public string Title { get; set; } = null!;
     public ContactInfo ContactInformation { get; set; } = null!;
     public WorkshopConstrains Constrains { get; set; } = null!;
-    public string Address { get; set; } = null!;
+    public Address Address { get; set; } = null!;
     public List<string> ImageUris { get; set; } = null!;
     public List<Direction> Directions{ get; set; } = null!;
     public string Description { get; set; } = null!;

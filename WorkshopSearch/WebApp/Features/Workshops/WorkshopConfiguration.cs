@@ -7,13 +7,17 @@ namespace WebApp.Features.Workshops;
 public class WorkshopConfiguration : IEntityTypeConfiguration<Workshop>
 {
     private const int TitleMaxLength = 100;
-    private const int AddressMaxLength = 200;
     private const int DescriptionMaxLength = 10000;
     private const int OwnerMaxLength = 200;
     private const int EmailMaxLength = 50;
     private const int PhoneNumberMaxLength = 20;
     private const int ImageUrisMaxLength = 1000;
     private const int RatingMaxLength = 5;
+    private const int RegionMaxLength = 100;
+    private const int CityMaxLength = 100;
+    private const int StreetMaxLength = 100;
+    private const int BuildingNumberMaxLength = 10;
+    
 
     public void Configure(EntityTypeBuilder<Workshop> builder)
     {
@@ -25,10 +29,18 @@ public class WorkshopConfiguration : IEntityTypeConfiguration<Workshop>
                 x => new WorkshopId(x));
 
         builder.Property(x => x.Title).HasMaxLength(TitleMaxLength).IsRequired();
-        builder.Property(x => x.Address).HasMaxLength(AddressMaxLength).IsRequired();
         builder.Property(x => x.Description).HasMaxLength(DescriptionMaxLength).IsRequired();
         builder.Property(x => x.Owner).HasMaxLength(OwnerMaxLength).IsRequired();
         builder.Property(x => x.Rating).HasMaxLength(RatingMaxLength);
+
+        builder.OwnsOne(x => x.Address,
+            ownedBuilder =>
+            {
+                ownedBuilder.Property(x => x.Region).HasMaxLength(RegionMaxLength);
+                ownedBuilder.Property(x => x.City).HasMaxLength(CityMaxLength).IsRequired();
+                ownedBuilder.Property(x => x.Street).HasMaxLength(StreetMaxLength).IsRequired();
+                ownedBuilder.Property(x => x.BuildingNumber).HasMaxLength(BuildingNumberMaxLength).IsRequired();
+            });
         
         builder.OwnsOne(x => x.ContactInformation,
             ownedBuilder =>
