@@ -8,6 +8,8 @@ namespace WebApp.Features.Workshops;
 
 public class WorkshopFilter : PaginatedFilter
 {
+    public RegionWithCity RegionWithCity { get; set; } = null!;
+    
     [MaxLength(Filter.MaxTextLength)]
     public string? Text { get; set; }
     

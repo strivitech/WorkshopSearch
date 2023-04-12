@@ -10,6 +10,7 @@ public class WorkshopFilterExpressionBuilder : IWorkshopFilterExpressionBuilder
     {
         Expression<Func<Workshop, bool>> expression = PredicateBuilder.True<Workshop>();
 
+        expression = FilterAddress(filter, expression);
         expression = FilterText(filter, expression);
         expression = FilterCategoryId(filter, expression);
         expression = FilterMinAge(filter, expression);
@@ -20,6 +21,16 @@ public class WorkshopFilterExpressionBuilder : IWorkshopFilterExpressionBuilder
         return expression;
     }
 
+    private static Expression<Func<Workshop, bool>> FilterAddress(WorkshopFilter filter,
+        Expression<Func<Workshop, bool>> expression)
+    {
+        expression = expression.And(workshop =>
+            workshop.Address.Region == filter.RegionWithCity.Region &&
+            workshop.Address.City == filter.RegionWithCity.City);
+
+        return expression;
+    }
+    
     private static Expression<Func<Workshop, bool>> FilterWorkingDays(WorkshopFilter filter,
         Expression<Func<Workshop, bool>> expression)
     {
