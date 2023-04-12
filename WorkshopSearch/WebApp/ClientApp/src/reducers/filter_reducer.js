@@ -14,7 +14,7 @@ const filter_reducer = (state, action) => {
       filters: {
         ...state.filters,
         text: '',
-        category: null,
+        category: 1,
         minAge: 0,
         maxAge: 100,
         minPrice: 0,

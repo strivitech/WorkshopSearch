@@ -8,7 +8,7 @@ import {
 const initialState = {
   filters: {
     text: '',
-    category: null,
+    category: 1,
     minAge: 0,
     maxAge: 100,
     minPrice: 0,
