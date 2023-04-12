@@ -70,18 +70,17 @@ export const ProductsProvider = ({ children }) => {
   const debouncedFilters = useDebounce(filters, DEBOUNCE_DELAY);
   useEffect(() => {
     let filtersToUri = {}
-
+  
     const [region, city] = filters.regionWithCity.split(',');
-    filtersToUri.Region = region;
-    filtersToUri.City = city;
-    console.log(filtersToUri)
+    filtersToUri["regionWithCity.region"] = region;
+    filtersToUri["regionWithCity.city"] = city;
     
     if (filters.text !== DEFAULT_FILTERS.text) {
       filtersToUri.text = filters.text;
     }
 
     if (filters.category !== DEFAULT_FILTERS.category) {
-      filtersToUri.category = filters.category;
+      filtersToUri.categoryId = filters.category;
     }
 
     if (filters.minAge !== DEFAULT_FILTERS.minAge) {
