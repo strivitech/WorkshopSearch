@@ -76,7 +76,6 @@ public class WorkshopService : IWorkshopService
         return workshops.ToShortWorkshopResponse();
     }
 
-
     private async Task<List<WorkshopAnalysisModel>> GetWorkshopsAsync(WorkshopFilter filter)
     {
         var expression = _filterExpressionBuilder.BuildExpression(filter);

@@ -47,8 +47,8 @@ public static class WorkshopsSeeder
             ),
             Address = new Address
             (
-                Region: null,
-                City: "City",
+                Region: "Київ",
+                City: "Київ",
                 Street: "Street 1",
                 BuildingNumber: "1"
             ),
@@ -82,8 +82,8 @@ public static class WorkshopsSeeder
             ),
             Address = new Address
             (
-                Region: null,
-                City: "City",
+                Region: "Київ",
+                City: "Київ",
                 Street: "Street 2",
                 BuildingNumber: "2"
             ),
@@ -117,8 +117,8 @@ public static class WorkshopsSeeder
             ),
             Address = new Address
             (
-                Region: null,
-                City: "City",
+                Region: "Київ",
+                City: "Київ",
                 Street: "Street 3",
                 BuildingNumber: "3"
             ),
@@ -152,8 +152,8 @@ public static class WorkshopsSeeder
             ),
             Address = new Address
             (
-                Region: null,
-                City: "City",
+                Region: "Київ",
+                City: "Київ",
                 Street: "Street 4",
                 BuildingNumber: "4"
             ),
@@ -187,8 +187,8 @@ public static class WorkshopsSeeder
             ),
             Address = new Address
             (
-                Region: null,
-                City: "City",
+                Region: "Київ",
+                City: "Київ",
                 Street: "Street 5",
                 BuildingNumber: "5"
             ),
