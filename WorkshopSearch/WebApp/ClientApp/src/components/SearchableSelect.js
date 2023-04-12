@@ -27,12 +27,14 @@ const SearchableSelect = ({ options, name, placeholder, value, onChange }) => {
         });
     };
 
+    const selectedOption = options.find(option => option.value === value);
+
     return (
         <Select
             ref={selectRef}
             options={filteredOptions}
             placeholder={placeholder}
-            value={value}
+            value={selectedOption}
             onChange={handleChange}
             onInputChange={setInputValue}
             isSearchable={true}
