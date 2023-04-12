@@ -36,7 +36,7 @@ public class WorkshopConfiguration : IEntityTypeConfiguration<Workshop>
         builder.OwnsOne(x => x.Address,
             ownedBuilder =>
             {
-                ownedBuilder.Property(x => x.Region).HasMaxLength(RegionMaxLength);
+                ownedBuilder.Property(x => x.Region).HasMaxLength(RegionMaxLength).IsRequired();
                 ownedBuilder.Property(x => x.City).HasMaxLength(CityMaxLength).IsRequired();
                 ownedBuilder.Property(x => x.Street).HasMaxLength(StreetMaxLength).IsRequired();
                 ownedBuilder.Property(x => x.BuildingNumber).HasMaxLength(BuildingNumberMaxLength).IsRequired();
