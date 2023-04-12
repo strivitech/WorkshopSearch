@@ -5,7 +5,8 @@ import { FaHouseUser, FaAddressCard } from 'react-icons/fa'
 import { BsFillPeopleFill } from "react-icons/bs";
 import { RiPriceTagFill } from "react-icons/ri";
 import { Link } from 'react-router-dom'
-const ShortProduct = ({ id, title, owner, minAge, maxAge, price, address, coverImageUri }) => {
+import {Stars} from "./index";
+const ShortProduct = ({ id, title, owner, minAge, maxAge, price, address, coverImageUri, rating, reviewsCount }) => {
     return (
         <Wrapper>
             <Link to={`/workshops/${id}`}>
@@ -15,6 +16,7 @@ const ShortProduct = ({ id, title, owner, minAge, maxAge, price, address, coverI
                     </div>
                     <footer>
                         <h5 className='title'>{title}</h5>
+                        <Stars stars={rating} reviews={reviewsCount} />
                         <p><FaHouseUser/> {owner}</p>
                         <div className='years-price'>
                             <p><BsFillPeopleFill/> {minAge}-{maxAge} years</p>

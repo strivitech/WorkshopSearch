@@ -9,6 +9,7 @@ import Error from './Error'
 import ProductImages from './ProductImages'
 import Filters from './Filters'
 import ProductList from './ProductList'
+import Stars from './Stars'
 export {
   Navbar,
   Footer,
@@ -21,4 +22,5 @@ export {
   ProductImages,
   Filters,
   ProductList,
+  Stars,
 }
