@@ -1,4 +1,5 @@
 ﻿using WebApp.Common.Data;
+using WebApp.Common.Data.ValueObjects;
 using WebApp.Database.Main;
 using WebApp.Features.Directions;
 
@@ -44,7 +45,13 @@ public static class WorkshopsSeeder
                 Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
                 DaysCount: 3
             ),
-            Address = "Address 1",
+            Address = new Address
+            (
+                Region: null,
+                City: "City",
+                Street: "Street 1",
+                BuildingNumber: "1"
+            ),
             ImageUris = new List<string>
                 { "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
             Description = "Description 1",
@@ -73,7 +80,13 @@ public static class WorkshopsSeeder
                 Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday,
                 DaysCount: 3
             ),
-            Address = "Address 2",
+            Address = new Address
+            (
+                Region: null,
+                City: "City",
+                Street: "Street 2",
+                BuildingNumber: "2"
+            ),
             ImageUris = new List<string>
                 { "https://www.example.com/images/workshop2.jpg" },
             Description = "Description 2",
@@ -102,7 +115,13 @@ public static class WorkshopsSeeder
                 Days: DaysBitMask.Sunday,
                 DaysCount: 1
             ),
-            Address = "Address 3",
+            Address = new Address
+            (
+                Region: null,
+                City: "City",
+                Street: "Street 3",
+                BuildingNumber: "3"
+            ),
             ImageUris = new List<string>
                 { "https://www.example.com/images/workshop3.jpg" },
             Description = "Description 3",
@@ -131,7 +150,13 @@ public static class WorkshopsSeeder
                 Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
                 DaysCount: 3
             ),
-            Address = "Address 4",
+            Address = new Address
+            (
+                Region: null,
+                City: "City",
+                Street: "Street 4",
+                BuildingNumber: "4"
+            ),
             ImageUris = new List<string>
                 { "https://www.example.com/images/workshop4.jpg" },
             Description = "Description 4",
@@ -160,7 +185,13 @@ public static class WorkshopsSeeder
                 Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
                 DaysCount: 3
             ),
-            Address = "Address 5",
+            Address = new Address
+            (
+                Region: null,
+                City: "City",
+                Street: "Street 5",
+                BuildingNumber: "5"
+            ),
             ImageUris = new List<string>
                 { "https://www.example.com/images/workshop5.jpg" },
             Description = "Description 5",

@@ -1,4 +1,6 @@
-﻿namespace WebApp.Features.Workshops;
+﻿using WebApp.Common.Application;
+
+namespace WebApp.Features.Workshops;
 
 public static class ToShortWorkshopResponseMapper
 {
@@ -12,7 +14,7 @@ public static class ToShortWorkshopResponseMapper
             MinAge = workshop.Constrains.MinAge,
             MaxAge = workshop.Constrains.MaxAge,
             Price = workshop.Constrains.Price,
-            Address = workshop.Address,
+            Address = workshop.Address.ToAddressString(),
             Rating = workshop.Rating,
             ReviewsCount = workshop.ReviewsCount,
             EnrollmentStatus = workshop.EnrollmentStatus,
