@@ -26,7 +26,7 @@ const initialState = {
 
 const DEFAULT_FILTERS = {
   text: '',
-  category: null,
+  category: 1,
   minAge: 0,
   maxAge: 100,
   minPrice: 0,
@@ -40,6 +40,7 @@ const DEFAULT_FILTERS = {
     saturday: false,
     sunday: false,
   },
+  regionWithCity: 'Київ,Київ'
 };
 
 const ProductsContext = React.createContext()
@@ -69,13 +70,15 @@ export const ProductsProvider = ({ children }) => {
   const debouncedFilters = useDebounce(filters, DEBOUNCE_DELAY);
   useEffect(() => {
     let filtersToUri = {}
+  
+    const [region, city] = filters.regionWithCity.split(',');
+    filtersToUri["regionWithCity.region"] = region;
+    filtersToUri["regionWithCity.city"] = city;
 
+    filtersToUri.categoryId = filters.category;
+    
     if (filters.text !== DEFAULT_FILTERS.text) {
       filtersToUri.text = filters.text;
-    }
-
-    if (filters.category !== DEFAULT_FILTERS.category) {
-      filtersToUri.category = filters.category;
     }
 
     if (filters.minAge !== DEFAULT_FILTERS.minAge) {

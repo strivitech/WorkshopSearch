@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useFilterContext} from '../context/filter_context'
+import SearchableSelect from "./SearchableSelect";
 
 const Filters = () => {
     const {
@@ -12,18 +13,46 @@ const Filters = () => {
             maxPrice,
             minPrice,
             workingDays,
+            regionWithCity
         },
         updateFilters,
         clearFilters,
     } = useFilterContext()
 
-    const categories = ['IT, Програмування', 'Конструювання', 'Малювання', 'Мови/Гуманітарій', 'Музика',
-        'Наука та досліди', 'Оздоровлення', 'Рукоділля', 'Спорт', 'Танці', 'Інше'];
+    const categories = [
+        { value: 1, label: 'IT, Програмування' },
+        { value: 2, label: 'Конструювання' },
+        { value: 3, label: 'Малювання' },
+        { value: 4, label: 'Мови/Гуманітарій' },
+        { value: 5, label: 'Музика' },
+        { value: 6, label: 'Наука та досліди' },
+        { value: 7, label: 'Оздоровлення' },
+        { value: 8, label: 'Рукоділля' },
+        { value: 9, label: 'Спорт' },
+        { value: 10, label: 'Танці' },
+        { value: 11, label: 'Інше' },
+    ];
+    const options = [
+        { value: 'Київ,Київ', label: 'Київ' },
+        { value: 'Київська,Боярка', label: 'Київська, Боярка' },
+        { value: 'Київська,Кагарлик', label: 'Київська, Кагарлик' },
+        // ... more options
+    ];
     return (
         <Wrapper>
             <div className='content'>
                 <form onSubmit={(e) => e.preventDefault()}>
 
+                    <div className='form-control'>
+                        <SearchableSelect
+                            options={options}
+                            name='regionWithCity'
+                            placeholder="Select an option"
+                            value={regionWithCity}
+                            onChange={updateFilters}
+                        />
+                    </div>
+                    
                     <div className='form-control'>
                         <input
                             type='text'
@@ -41,17 +70,17 @@ const Filters = () => {
                             {categories.map((c, index) => {
                                 return (
                                     <button
+                                        data-id={c.value}
                                         key={index}
                                         onClick={updateFilters}
                                         type='button'
                                         name='category'
-                                        className={`${
-                                            category === c.toLowerCase() ? 'active' : null
-                                        }`}
+                                        value={c.value}
+                                        className={`${category === c.value ? 'active' : null}`}
                                     >
-                                        {c}
+                                        {c.label}
                                     </button>
-                                )
+                                );
                             })}
                         </div>
                     </div>

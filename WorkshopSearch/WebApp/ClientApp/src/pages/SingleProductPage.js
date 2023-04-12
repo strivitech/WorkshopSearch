@@ -10,6 +10,7 @@ import {
   Loading,
   Error,
   ProductImages,
+  Stars
 } from '../components';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -54,7 +55,9 @@ const SingleProductPage = () => {
     imageUris,
     directionIds,
     description,
-    owner
+    owner,
+    rating,
+    reviewsCount
   } = product;
   return (
     <Wrapper>
@@ -66,6 +69,7 @@ const SingleProductPage = () => {
           <ProductImages images={imageUris} />
           <section className='content'>
             <h2>{title}</h2>
+            <Stars stars={rating} reviews={reviewsCount} />
             <h5><FaHouseUser/> {owner}</h5>
             <p><RiPriceTagFill/> {formatPrice(price)}</p>
             <p className='info'>

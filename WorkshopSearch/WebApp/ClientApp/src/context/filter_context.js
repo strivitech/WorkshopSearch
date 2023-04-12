@@ -8,7 +8,7 @@ import {
 const initialState = {
   filters: {
     text: '',
-    category: null,
+    category: 1,
     minAge: 0,
     maxAge: 100,
     minPrice: 0,
@@ -22,6 +22,7 @@ const initialState = {
       saturday: false,
       sunday: false,
     },
+    regionWithCity: 'Київ,Київ'
   },
 }
 
@@ -33,7 +34,7 @@ export const FilterProvider = ({ children }) => {
     let name = e.target.name
     let value = e.target.value
     if (name === 'category') {
-      value = e.target.textContent
+      value = parseInt(e.target.dataset.id);
     }
     if (name === 'minAge' || name === 'maxAge') {
       value = Number(value)

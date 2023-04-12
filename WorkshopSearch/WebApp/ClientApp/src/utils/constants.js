@@ -38,5 +38,5 @@ export const services = [
     },
 ]
 
-export const products_url = 'workshops'
-export const single_product_url = `workshops/`
+export const products_url = 'api/workshops'
+export const single_product_url = `api/workshops/`
