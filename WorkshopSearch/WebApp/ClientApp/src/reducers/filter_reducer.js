@@ -28,6 +28,7 @@ const filter_reducer = (state, action) => {
           saturday: false,
           sunday: false,
         },
+        regionWithCity: 'Київ,Київ'
       },
     }
   }

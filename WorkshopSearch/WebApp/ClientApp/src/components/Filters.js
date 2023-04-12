@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useFilterContext} from '../context/filter_context'
+import SearchableSelect from "./SearchableSelect";
 
 const Filters = () => {
     const {
@@ -12,6 +13,7 @@ const Filters = () => {
             maxPrice,
             minPrice,
             workingDays,
+            regionWithCity
         },
         updateFilters,
         clearFilters,
@@ -19,11 +21,27 @@ const Filters = () => {
 
     const categories = ['IT, Програмування', 'Конструювання', 'Малювання', 'Мови/Гуманітарій', 'Музика',
         'Наука та досліди', 'Оздоровлення', 'Рукоділля', 'Спорт', 'Танці', 'Інше'];
+    const options = [
+        { value: 'Київ,Київ', label: 'Київ' },
+        { value: 'Київська,Боярка', label: 'Київська, Боярка' },
+        { value: 'Київська,Кагарлик', label: 'Київська, Кагарлик' },
+        // ... more options
+    ];
     return (
         <Wrapper>
             <div className='content'>
                 <form onSubmit={(e) => e.preventDefault()}>
 
+                    <div className='form-control'>
+                        <SearchableSelect
+                            options={options}
+                            name='regionWithCity'
+                            placeholder="Select an option"
+                            value={regionWithCity}
+                            onChange={updateFilters}
+                        />
+                    </div>
+                    
                     <div className='form-control'>
                         <input
                             type='text'

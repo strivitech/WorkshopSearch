@@ -22,6 +22,7 @@ const initialState = {
       saturday: false,
       sunday: false,
     },
+    regionWithCity: 'Київ,Київ'
   },
 }
 

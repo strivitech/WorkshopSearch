@@ -10,17 +10,20 @@ import ProductImages from './ProductImages'
 import Filters from './Filters'
 import ProductList from './ProductList'
 import Stars from './Stars'
+import SearchableSelect from "./SearchableSelect";
+
 export {
-  Navbar,
-  Footer,
-  Sidebar,
-  Hero,
-  Services,
-  Contact,
-  Loading,
-  Error,
-  ProductImages,
-  Filters,
-  ProductList,
-  Stars,
+    Navbar,
+    Footer,
+    Sidebar,
+    Hero,
+    Services,
+    Contact,
+    Loading,
+    Error,
+    ProductImages,
+    Filters,
+    ProductList,
+    Stars,
+    SearchableSelect
 }

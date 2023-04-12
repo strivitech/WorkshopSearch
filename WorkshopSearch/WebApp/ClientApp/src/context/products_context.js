@@ -40,6 +40,7 @@ const DEFAULT_FILTERS = {
     saturday: false,
     sunday: false,
   },
+  regionWithCity: 'Київ,Київ'
 };
 
 const ProductsContext = React.createContext()
@@ -70,6 +71,11 @@ export const ProductsProvider = ({ children }) => {
   useEffect(() => {
     let filtersToUri = {}
 
+    const [region, city] = filters.regionWithCity.split(',');
+    filtersToUri.Region = region;
+    filtersToUri.City = city;
+    console.log(filtersToUri)
+    
     if (filters.text !== DEFAULT_FILTERS.text) {
       filtersToUri.text = filters.text;
     }
