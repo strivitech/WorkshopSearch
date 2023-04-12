@@ -19,8 +19,19 @@ const Filters = () => {
         clearFilters,
     } = useFilterContext()
 
-    const categories = ['IT, Програмування', 'Конструювання', 'Малювання', 'Мови/Гуманітарій', 'Музика',
-        'Наука та досліди', 'Оздоровлення', 'Рукоділля', 'Спорт', 'Танці', 'Інше'];
+    const categories = [
+        { value: 1, label: 'IT, Програмування' },
+        { value: 2, label: 'Конструювання' },
+        { value: 3, label: 'Малювання' },
+        { value: 4, label: 'Мови/Гуманітарій' },
+        { value: 5, label: 'Музика' },
+        { value: 6, label: 'Наука та досліди' },
+        { value: 7, label: 'Оздоровлення' },
+        { value: 8, label: 'Рукоділля' },
+        { value: 9, label: 'Спорт' },
+        { value: 10, label: 'Танці' },
+        { value: 11, label: 'Інше' },
+    ];
     const options = [
         { value: 'Київ,Київ', label: 'Київ' },
         { value: 'Київська,Боярка', label: 'Київська, Боярка' },
@@ -59,17 +70,17 @@ const Filters = () => {
                             {categories.map((c, index) => {
                                 return (
                                     <button
+                                        data-id={c.value}
                                         key={index}
                                         onClick={updateFilters}
                                         type='button'
                                         name='category'
-                                        className={`${
-                                            category === c.toLowerCase() ? 'active' : null
-                                        }`}
+                                        value={c.value}
+                                        className={`${category === c.value ? 'active' : null}`}
                                     >
-                                        {c}
+                                        {c.label}
                                     </button>
-                                )
+                                );
                             })}
                         </div>
                     </div>
