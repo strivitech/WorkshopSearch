@@ -37,6 +37,3 @@ export const services = [
             'Наш сайт зародився з ідеї допомогти батькам та дітям знайти найкращі гуртки для розвитку здібностей.',
     },
 ]
-
-export const products_url = 'api/workshops'
-export const single_product_url = `api/workshops/`
