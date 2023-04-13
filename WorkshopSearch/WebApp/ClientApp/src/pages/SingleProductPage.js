@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
-import { single_product_url as url } from '../utils/constants';
 import { formatPrice } from '../utils/helpers';
 import { FaHouseUser } from 'react-icons/fa'
 import { BsFillPeopleFill } from "react-icons/bs";
@@ -14,6 +13,7 @@ import {
 } from '../components';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 const SingleProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const SingleProductPage = () => {
   } = useProductsContext();
 
   useEffect(() => {
-    fetchSingleProduct(`${url}${id}`);
+    fetchSingleProduct(`api/workshops/${id}`);
     // eslint-disable-next-line
   }, [id]);
   useEffect(() => {
@@ -47,17 +47,19 @@ const SingleProductPage = () => {
     title,
     phoneNumber,
     email,
-    contactLinks,
+    contactLinks = [],
     minAge,
     maxAge,
     price,
-    address,
+    address = { region: '', city: '', street: '', buildingNumber: '' },
     imageUris,
-    directionIds,
+    directions = [],
     description,
     owner,
     rating,
-    reviewsCount
+    reviewsCount,
+    coverImageUri,
+    days = []
   } = product;
   return (
     <Wrapper>
@@ -74,34 +76,53 @@ const SingleProductPage = () => {
             <p><RiPriceTagFill/> {formatPrice(price)}</p>
             <p className='info'>
               <span>PhoneNumber :</span>
-              {phoneNumber}
+                <span onClick={() => navigator.clipboard.writeText(phoneNumber)} style={{ cursor: 'pointer' }}>
+                    {phoneNumber}
+                </span>
             </p>
-            <p className='info'>
-              <span>Email :</span>
-              {email}
-            </p>
+              <p className='info'>
+                  <span>Email :</span>
+                  <span onClick={() => navigator.clipboard.writeText(email)} style={{ cursor: 'pointer' }}>
+                    {email}
+                  </span>
+              </p>
             <p className='info'>
               <span>ContactLinks :</span>
-              {contactLinks}
+              {contactLinks.map((link, index) => (
+                  <React.Fragment key={index}>
+                    {index > 0 && <br />}
+                    <a href={link} target="_blank" rel="noopener noreferrer">{link}</a>
+                  </React.Fragment>
+              ))}
             </p>
             <p><BsFillPeopleFill/> {minAge}-{maxAge} years</p>
             <p className='info'>
-              <span>DirectionIds :</span>
-              {directionIds}
+              <span>Directions :</span>
+              {directions.map((direction, index) => (
+                  <React.Fragment key={direction.id}>
+                    {index > 0 && <br />}
+                    {direction.name}
+                  </React.Fragment>
+              ))}
             </p>
             <p className='info'>
               <span>Address :</span>
-              {address}
+              {address.region === address.city
+                  ? `${address.city}, ${address.street}, ${address.buildingNumber}`
+                  : `${address.region}, ${address.city}, ${address.street}, ${address.buildingNumber}`}
             </p>
+              <p className='info'>
+                  <span>Working days:</span>
+                  {days.map((day, index) => (
+                      <React.Fragment key={index}>
+                          {index > 0 && <br />}
+                          {day}
+                      </React.Fragment>
+                  ))}
+              </p>
           </section>
         </div>
-        <p className='desc'>{description}
-          Lorem ipsum dolor sit amet co nsectetur a dipisicing elit. Quisquam
-          Lorem ipsum dolor sit amet co nsectetur a dipisicing elit. Quisquam
-          Lorem ipsum dolor sit amet co nsectetur a dipisicing elit. Quisquam
-          Lorem ipsum dolor sit amet co nsectetur a dipisicing elit. Quisquam
-          Lorem ipsum dolor sit amet co nsectetur a dipisicing elit. Quisquam
-        </p>
+        <p className='desc'>{description}</p>
       </div>
     </Wrapper>
   );

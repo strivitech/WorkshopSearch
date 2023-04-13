@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, {useContext, useEffect, useReducer, useState} from 'react'
 import reducer from '../reducers/products_reducer'
-import { products_url as url } from '../utils/constants'
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
@@ -104,9 +103,9 @@ export const ProductsProvider = ({ children }) => {
     
     let urlParams = new URLSearchParams(filtersToUri).toString();
     if(urlParams.length > 0) {
-      fetchProducts(url + '?' + urlParams)
+      fetchProducts(`api/workshops` + '?' + urlParams)
     } else {
-      fetchProducts(url)
+      fetchProducts(`api/workshops`)
     }
   }, [debouncedFilters])
   const openSidebar = () => {
@@ -131,6 +130,7 @@ export const ProductsProvider = ({ children }) => {
     try {
       const response = await axios.get(url)
       const singleProduct = response.data
+      console.log(singleProduct)
       dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct })
     } catch (error) {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR })
