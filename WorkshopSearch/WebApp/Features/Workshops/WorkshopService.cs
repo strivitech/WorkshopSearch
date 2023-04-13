@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebApp.Database.Main;
+using ErrorOr;
 
 namespace WebApp.Features.Workshops;
 
@@ -19,50 +20,71 @@ public class WorkshopService : IWorkshopService
         _dbContext = dbContext;
     }
 
-    public async Task<List<ShortWorkshopResponse>> GetByFilterAsync(WorkshopFilter filter)
+    public async Task<ErrorOr<List<ShortWorkshopResponse>>> GetByFilterAsync(WorkshopFilter filter)
     {
-        var expression = _filterExpressionBuilder.BuildExpression(filter);
-        var workshops = await _dbContext.Workshops
-            .Include(x => x.Directions)
-            .Where(expression)
-            .Skip((filter.From - 1) * filter.Size)
-            .Take(filter.Size)
-            .ToListAsync();
+        try
+        {
+            var expression = _filterExpressionBuilder.BuildExpression(filter);
+            var workshops = await _dbContext.Workshops
+                .Include(x => x.Directions)
+                .Where(expression)
+                .Skip((filter.From - 1) * filter.Size)
+                .Take(filter.Size)
+                .ToListAsync();
 
-        return workshops.ToShortWorkshopResponse();
+            return workshops.ToShortWorkshopResponse();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return Errors.Workshops.GetByFilterFailure;
+        }
     }
 
-    public async Task<List<ShortWorkshopResponse>> GetByDecisionMakingAnalysisAsync(WorkshopFilter filter)
+    public async Task<ErrorOr<List<ShortWorkshopResponse>>> GetByDecisionMakingAnalysisAsync(WorkshopFilter filter)
     {
-        var analysisModels = await GetWorkshopsAsync(filter);
-        var ordering = await _workshopsDecisionMakingAnalysisService.OrderAnalysisModelsAsync(analysisModels);
-        var filteredIds = ordering
-            .Skip((filter.From - 1) * filter.Size)
-            .Take(filter.Size)
-            .Select((id, index) => new { Id = id, OrderIndex = index })
-            .ToDictionary(x => x.Id, x => x.OrderIndex);
-
-        var workshops = await GetByIds(filteredIds.Keys);
-
-        CheckIfWorkshopCountCorrect();
-        return OrderWorkshopsByIds();
-
-        void CheckIfWorkshopCountCorrect()
+        try
         {
-            if (filteredIds.Count != workshops.Count)
+            var analysisModels = await GetWorkshopsAsync(filter);
+            var ordering = await _workshopsDecisionMakingAnalysisService.OrderAnalysisModelsAsync(analysisModels);
+            if (ordering.IsError)
             {
-                throw new Exception("Workshops count is not equal to filtered ids count");
+                return Errors.Workshops.DecisionMakingAnalysisOrderingFailed;
+            }
+        
+            var filteredIds = ordering.Value
+                .Skip((filter.From - 1) * filter.Size)
+                .Take(filter.Size)
+                .Select((id, index) => new { Id = id, OrderIndex = index })
+                .ToDictionary(x => x.Id, x => x.OrderIndex);
+
+            var workshops = await GetByIds(filteredIds.Keys);
+
+            CheckIfWorkshopCountCorrect();
+            return OrderWorkshopsByIds();
+            
+            void CheckIfWorkshopCountCorrect()
+            {
+                if (filteredIds.Count != workshops.Count)
+                {
+                    throw new InvalidOperationException("Workshops count is not equal to filtered ids count");
+                }
+            }
+
+            List<ShortWorkshopResponse> OrderWorkshopsByIds()
+            {
+                var orderedWorkshops = new List<ShortWorkshopResponse>(filteredIds.Count);
+                orderedWorkshops.AddRange(Enumerable.Repeat<ShortWorkshopResponse>(null!, filteredIds.Count));
+
+                workshops.ForEach(workshop => orderedWorkshops[filteredIds[workshop.Id]] = workshop);
+
+                return orderedWorkshops;
             }
         }
-
-        List<ShortWorkshopResponse> OrderWorkshopsByIds()
+        catch (Exception e)
         {
-            var orderedWorkshops = new List<ShortWorkshopResponse>(filteredIds.Count);
-            orderedWorkshops.AddRange(Enumerable.Repeat<ShortWorkshopResponse>(null!, filteredIds.Count));
-
-            workshops.ForEach(workshop => orderedWorkshops[filteredIds[workshop.Id]] = workshop);
-
-            return orderedWorkshops;
+            Console.WriteLine(e);
+            return Errors.Workshops.DecisionMakingAnalysisOrderingFailed;
         }
     }
 

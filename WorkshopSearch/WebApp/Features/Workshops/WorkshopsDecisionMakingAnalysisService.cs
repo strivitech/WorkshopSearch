@@ -1,4 +1,5 @@
-﻿using TOPSIS;
+﻿using ErrorOr;
+using TOPSIS;
 
 namespace WebApp.Features.Workshops;
 
@@ -11,16 +12,24 @@ public class WorkshopsDecisionMakingAnalysisService : IWorkshopsDecisionMakingAn
         _workshopAnalysisMetadata = workshopAnalysisMetadata;
     }
 
-    public async Task<List<Guid>> OrderAnalysisModelsAsync(IEnumerable<WorkshopAnalysisModel> workshopAnalysisModels)
+    public async Task<ErrorOr<List<Guid>>> OrderAnalysisModelsAsync(IEnumerable<WorkshopAnalysisModel> workshopAnalysisModels)
     {
-        var workingTable = GetWorkingTable(workshopAnalysisModels);
-        var topsisWorker = new TopsisWorker<Guid>(workingTable);
+        try
+        {
+            var workingTable = GetWorkingTable(workshopAnalysisModels);
+            var topsisWorker = new TopsisWorker<Guid>(workingTable);
 
-        var ordering = await Task.Run(() => topsisWorker.GetOrderingByRelativeClosenessToIdealSolution()
-            .Select(x => x.Identifier)
-            .ToList());
+            var ordering = await Task.Run(() => topsisWorker.GetOrderingByRelativeClosenessToIdealSolution()
+                .Select(x => x.Identifier)
+                .ToList());
 
-        return ordering;
+            return ordering;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return Common.Application.Errors.DecisionMakingAnalysis.OrderAnalysisUnexpected;
+        }
     }
 
     private WorkingTable<Guid> GetWorkingTable(IEnumerable<WorkshopAnalysisModel> workshopAnalysisModels)

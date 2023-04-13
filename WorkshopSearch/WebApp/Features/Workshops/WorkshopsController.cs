@@ -18,6 +18,8 @@ public class WorkshopsController : ControllerBase
     public async Task<IActionResult> GetByDecisionMakingAnalysis([FromQuery] WorkshopFilter filter)
     {
         var workshops = await _workshopService.GetByDecisionMakingAnalysisAsync(filter);
-        return Ok(workshops);
+        return workshops.MatchFirst<IActionResult>(
+            Ok, 
+            onError => BadRequest(onError));
     }
 }
