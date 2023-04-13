@@ -1,8 +1,10 @@
-﻿namespace WebApp.Features.Workshops;
+﻿using ErrorOr;
+
+namespace WebApp.Features.Workshops;
 
 public interface IWorkshopService
 {
-    Task<List<ShortWorkshopResponse>> GetByFilterAsync(WorkshopFilter filter);
+    Task<ErrorOr<List<ShortWorkshopResponse>>> GetByFilterAsync(WorkshopFilter filter);
     
-    Task<List<ShortWorkshopResponse>> GetByDecisionMakingAnalysisAsync(WorkshopFilter filter);
+    Task<ErrorOr<List<ShortWorkshopResponse>>> GetByDecisionMakingAnalysisAsync(WorkshopFilter filter);
 }
