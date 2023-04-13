@@ -20,6 +20,15 @@ public class WorkshopsController : ControllerBase
         var workshops = await _workshopService.GetByDecisionMakingAnalysisAsync(filter);
         return workshops.MatchFirst<IActionResult>(
             Ok, 
-            onError => BadRequest(onError));
+            onError => BadRequest(onError.Description));
+    }
+    
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        var workshop = await _workshopService.GetByIdAsync(id);
+        return workshop.MatchFirst<IActionResult>(
+            Ok, 
+            onError => BadRequest(onError.Description));
     }
 }
