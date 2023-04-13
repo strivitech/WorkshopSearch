@@ -17,7 +17,7 @@ public static class ToWorkshopResponseMapper
             MinAge = workshop.Constrains.MinAge,
             MaxAge = workshop.Constrains.MaxAge,
             Price = workshop.Constrains.Price,
-            Address = workshop.Address.ToString(),
+            Address = workshop.Address.ToAddressDto(),
             ImageUris = workshop.ImageUris.ToList(),
             Directions = workshop.Directions.Select(d => d.ToDirectionDto()).ToList(),
             Description = workshop.Description,
