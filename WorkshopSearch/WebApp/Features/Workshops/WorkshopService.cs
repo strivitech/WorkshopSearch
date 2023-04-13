@@ -20,6 +20,17 @@ public class WorkshopService : IWorkshopService
         _dbContext = dbContext;
     }
 
+    public async Task<ErrorOr<WorkshopResponse>> GetByIdAsync(Guid id)
+    {
+        var workshop = await _dbContext.Workshops
+            .Include(x => x.Directions)
+            .FirstOrDefaultAsync(x => x.Id == new WorkshopId(id));
+
+        return workshop is null
+            ? Errors.Workshops.NotFound
+            : workshop.ToWorkshopResponse();
+    }
+
     public async Task<ErrorOr<List<ShortWorkshopResponse>>> GetByFilterAsync(WorkshopFilter filter)
     {
         try
@@ -49,7 +60,7 @@ public class WorkshopService : IWorkshopService
             var ordering = await _workshopsDecisionMakingAnalysisService.OrderAnalysisModelsAsync(analysisModels);
             if (ordering.IsError)
             {
-                return Errors.Workshops.DecisionMakingAnalysisOrderingFailed;
+                return Errors.Workshops.GetByDecisionMakingAnalysisFailure;
             }
         
             var filteredIds = ordering.Value
@@ -84,7 +95,7 @@ public class WorkshopService : IWorkshopService
         catch (Exception e)
         {
             Console.WriteLine(e);
-            return Errors.Workshops.DecisionMakingAnalysisOrderingFailed;
+            return Errors.Workshops.GetByDecisionMakingAnalysisFailure;
         }
     }
 

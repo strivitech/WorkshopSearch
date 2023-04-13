@@ -13,7 +13,7 @@ public class WorkshopResponse
     public int MinAge { get; set; }
     public int MaxAge { get; set; }
     public decimal Price { get; set; }
-    public string Address { get; set; } = null!;
+    public AddressDto Address { get; set; } = null!;
     public List<string>? ImageUris { get; set; }
     public List<DirectionDto> Directions { get; set; } = null!;
     public string Description { get; set; } = null!;
