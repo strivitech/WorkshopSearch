@@ -6,7 +6,8 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { RiPriceTagFill } from "react-icons/ri";
 import { Link } from 'react-router-dom'
 import {Stars} from "./index";
-const ShortProduct = ({ id, title, owner, minAge, maxAge, price, address, coverImageUri, rating, reviewsCount }) => {
+
+const ShortProduct = ({ id, title, owner, minAge, maxAge, price, address, coverImageUri, rating, reviewsCount, enrollmentStatus }) => {
     return (
         <Wrapper>
             <Link to={`/workshops/${id}`}>
@@ -17,6 +18,9 @@ const ShortProduct = ({ id, title, owner, minAge, maxAge, price, address, coverI
                     <footer>
                         <h5 className='title'>{title}</h5>
                         <Stars stars={rating} reviews={reviewsCount} />
+                        <EnrollmentStatus isOpen={enrollmentStatus === 1}>
+                            {enrollmentStatus === 1 ? "Відкрито набір" : "Набір закритий"}
+                        </EnrollmentStatus>
                         <p><FaHouseUser/> {owner}</p>
                         <div className='years-price'>
                             <p><BsFillPeopleFill/> {minAge}-{maxAge} years</p>
@@ -29,6 +33,18 @@ const ShortProduct = ({ id, title, owner, minAge, maxAge, price, address, coverI
         </Wrapper>
     )
 }
+
+const EnrollmentStatus = styled.span`
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    background-color: ${props => props.isOpen ? "green" : "red"};
+    color: white;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+`;
+
 const Wrapper = styled.article`
   .wrapper:hover {
     cursor: pointer;
