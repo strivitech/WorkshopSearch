@@ -59,7 +59,8 @@ const SingleProductPage = () => {
     rating,
     reviewsCount,
     coverImageUri,
-    days = []
+    days = [],
+    enrollmentStatus,
   } = product;
   return (
     <Wrapper>
@@ -72,6 +73,9 @@ const SingleProductPage = () => {
           <section className='content'>
             <h2>{title}</h2>
             <Stars stars={rating} reviews={reviewsCount} />
+            <EnrollmentStatus isOpen={enrollmentStatus === 1}>
+              {enrollmentStatus === 1 ? "Відкрито набір" : "Набір закритий"}
+            </EnrollmentStatus>
             <h5><FaHouseUser/> {owner}</h5>
             <p><RiPriceTagFill/> {formatPrice(price)}</p>
             <p className='info'>
@@ -127,6 +131,17 @@ const SingleProductPage = () => {
     </Wrapper>
   );
 };
+
+const EnrollmentStatus = styled.span`
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    background-color: ${props => props.isOpen ? "green" : "red"};
+    color: white;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+`;
 
 const Wrapper = styled.main`
   .product-center {
