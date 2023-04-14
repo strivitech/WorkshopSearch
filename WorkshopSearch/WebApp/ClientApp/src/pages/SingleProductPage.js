@@ -76,8 +76,14 @@ const SingleProductPage = () => {
             <EnrollmentStatus isOpen={enrollmentStatus === 1}>
               {enrollmentStatus === 1 ? "Відкрито набір" : "Набір закритий"}
             </EnrollmentStatus>
-            <h5><FaHouseUser/> {owner}</h5>
-            <p><RiPriceTagFill/> {formatPrice(price)}</p>
+            <p className='info'>
+              <span><FaHouseUser/> Власник: </span>
+                {owner}
+            </p>
+            <p className='info'>
+              <span><RiPriceTagFill/> Ціна: </span>
+                {formatPrice(price)}
+            </p>
             <p className='info'>
               <span>PhoneNumber :</span>
                 <span onClick={() => navigator.clipboard.writeText(phoneNumber)} style={{ cursor: 'pointer' }}>
@@ -99,7 +105,10 @@ const SingleProductPage = () => {
                   </React.Fragment>
               ))}
             </p>
-            <p><BsFillPeopleFill/> {minAge}-{maxAge} years</p>
+            <p className='info'>
+              <span><BsFillPeopleFill/> Вік: </span>
+                {minAge}-{maxAge} років
+            </p>
             <p className='info'>
               <span>Directions :</span>
               {directions.map((direction, index) => (
