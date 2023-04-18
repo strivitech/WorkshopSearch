@@ -57,6 +57,11 @@ public class WorkshopService : IWorkshopService
         try
         {
             var analysisModels = await GetWorkshopsAsync(filter);
+            if (!analysisModels.Any())
+            {
+                return new List<ShortWorkshopResponse>(0);
+            }
+            
             var ordering = await _workshopsDecisionMakingAnalysisService.OrderAnalysisModelsAsync(analysisModels);
             if (ordering.IsError)
             {
