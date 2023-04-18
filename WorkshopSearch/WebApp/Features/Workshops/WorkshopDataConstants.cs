@@ -13,7 +13,7 @@ public static class WorkshopDataConstants
 
         public const int MaxTextLength = 100;
         public const int MinCategoryId = 1;
-        public const int MaxCategoryId = 3;
+        public const int MaxCategoryId = 11;
         public const int MinPriceMinValue = 0;
         public const int MinPriceMaxValue = 100000;
         public const int MaxPriceMinValue = 0;
