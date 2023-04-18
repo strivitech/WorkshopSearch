@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {useFilterContext} from '../context/filter_context'
 import SearchableSelect from "./SearchableSelect";
@@ -18,20 +18,22 @@ const Filters = () => {
         updateFilters,
         clearFilters,
     } = useFilterContext()
+    
+    const [categories, setCategories] = useState([]);
 
-    const categories = [
-        { value: 1, label: 'IT, Програмування' },
-        { value: 2, label: 'Конструювання' },
-        { value: 3, label: 'Малювання' },
-        { value: 4, label: 'Мови/Гуманітарій' },
-        { value: 5, label: 'Музика' },
-        { value: 6, label: 'Наука та досліди' },
-        { value: 7, label: 'Оздоровлення' },
-        { value: 8, label: 'Рукоділля' },
-        { value: 9, label: 'Спорт' },
-        { value: 10, label: 'Танці' },
-        { value: 11, label: 'Інше' },
-    ];
+    useEffect(() => {
+        async function fetchCategories() {
+            try {
+                const response = await fetch('/api/directions');
+                const data = await response.json();
+                setCategories(data.map((category) => ({ value: category.id, label: category.name })));
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        }
+        fetchCategories();
+    }, []);
+    
     const options = [
         { value: 'Київ,Київ', label: 'Київ' },
         { value: 'Київська,Боярка', label: 'Київська, Боярка' },

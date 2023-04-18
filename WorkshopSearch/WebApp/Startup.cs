@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApp.Database.Main;
+using WebApp.Features.Directions;
 using WebApp.Features.Workshops;
 
 namespace WebApp;
@@ -30,6 +31,7 @@ public static class Startup
         services.AddScoped<IWorkshopService, WorkshopService>();
         services.AddScoped<IWorkshopsDecisionMakingAnalysisService, WorkshopsDecisionMakingAnalysisService>();
         services.AddScoped<WorkshopAnalysisMetadata>();
+        services.AddScoped<IDirectionsService, DirectionsService>();
     }
 
     /// <summary>

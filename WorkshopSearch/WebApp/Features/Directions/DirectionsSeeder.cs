@@ -21,17 +21,57 @@ public static class DirectionsSeeder
         new()
         {
             Id = new DirectionId(1),
-            Name = "Direction 1"
+            Name = "IT, Програмування"
         },
         new()
         {
             Id = new DirectionId(2),
-            Name = "Direction 2"
+            Name = "Конструювання"
         },
         new()
         {
             Id = new DirectionId(3),
-            Name = "Direction 3"
+            Name = "Малювання"
+        },
+        new()
+        {
+            Id = new DirectionId(4),
+            Name = "Мови/Гуманітарій"
+        },
+        new()
+        {
+            Id = new DirectionId(5),
+            Name = "Музика"
+        },
+        new()
+        {
+            Id = new DirectionId(6),
+            Name = "Наука та досліди"
+        },
+        new()
+        {
+            Id = new DirectionId(7),
+            Name = "Оздоровлення"
+        },
+        new()
+        {
+            Id = new DirectionId(8),
+            Name = "Рукоділля"
+        },
+        new()
+        {
+            Id = new DirectionId(9),
+            Name = "Спорт"
+        },
+        new()
+        {
+            Id = new DirectionId(10),
+            Name = "Танці"
+        },
+        new()
+        {
+            Id = new DirectionId(11),
+            Name = "Інше"
         },
     };
 }
