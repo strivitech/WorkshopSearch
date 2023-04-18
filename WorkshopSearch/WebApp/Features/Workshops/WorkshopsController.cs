@@ -19,7 +19,7 @@ public class WorkshopsController : ControllerBase
     {
         var workshops = await _workshopService.GetByDecisionMakingAnalysisAsync(filter);
         return workshops.MatchFirst<IActionResult>(
-            Ok, 
+            onValue => onValue.Any() ? Ok(onValue) : NoContent(), 
             onError => BadRequest(onError.Description));
     }
     
@@ -29,6 +29,8 @@ public class WorkshopsController : ControllerBase
         var workshop = await _workshopService.GetByIdAsync(id);
         return workshop.MatchFirst<IActionResult>(
             Ok, 
-            onError => BadRequest(onError.Description));
+            onError => onError == Errors.Workshops.NotFound
+                ? NotFound()
+                : BadRequest(onError.Description));
     }
 }
