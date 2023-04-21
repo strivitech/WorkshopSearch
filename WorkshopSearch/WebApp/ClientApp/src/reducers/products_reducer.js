@@ -24,8 +24,9 @@ const products_reducer = (state, action) => {
     return {
       ...state,
       products_loading: false,
-      products: action.payload,
-    }
+      products: action.payload.items,
+      totalPages: action.payload.totalPages,
+    };
   }
   if (action.type === GET_PRODUCTS_ERROR) {
     return { ...state, products_loading: false, products_error: true }
