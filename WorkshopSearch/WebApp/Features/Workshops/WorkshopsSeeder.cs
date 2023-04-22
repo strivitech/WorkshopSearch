@@ -412,5 +412,320 @@ public static class WorkshopsSeeder
             Directions = new List<Direction> { directions[1], directions[2] },
             CoverImageUri = "https://www.example.com/images/workshop11.jpg"
         },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 12",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop12@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop12", "https://www.instagram.com/workshop12" },
+                PhoneNumber: "+380000000012"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 18,
+                MaxAge: 60,
+                Price: 200,
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 12",
+                BuildingNumber: "12"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop12.jpg" },
+            Description = "Description 12",
+            Owner = "Owner 12",
+            Rating = 4.0f,
+            ReviewsCount = 7,
+            EnrollmentStatus = EnrollmentStatus.Open,
+            Directions = new List<Direction> { directions[0], directions[1], directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop12.jpg"
+        },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 13",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop13@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop13", "https://www.instagram.com/workshop13" },
+                PhoneNumber: "+380000000013"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 16,
+                MaxAge: 50,
+                Price: 150,
+                Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 13",
+                BuildingNumber: "13"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop13.jpg" },
+            Description = "Description 13",
+            Owner = "Owner 13",
+            Rating = 3.8f,
+            ReviewsCount = 3,
+            EnrollmentStatus = EnrollmentStatus.Open,
+            Directions = new List<Direction> { directions[0], directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop13.jpg"
+        },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 14",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop14@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop14", "https://www.instagram.com/workshop14" },
+                PhoneNumber: "+380000000014"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 25,
+                MaxAge: 50,
+                Price: 150,
+                Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 14",
+                BuildingNumber: "14"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop14.jpg" },
+            Description = "Description 14",
+            Owner = "Owner 14",
+            Rating = 4.2f,
+            ReviewsCount = 8,
+            EnrollmentStatus = EnrollmentStatus.Open,
+            Directions = new List<Direction> { directions[0], directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop14.jpg"
+        },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 15",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop15@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop15", "https://www.instagram.com/workshop15" },
+                PhoneNumber: "+380000000015"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 20,
+                MaxAge: 55,
+                Price: 300,
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 15",
+                BuildingNumber: "15"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop15.jpg" },
+            Description = "Description 15",
+            Owner = "Owner 15",
+            Rating = 4.5f,
+            ReviewsCount = 10,
+            EnrollmentStatus = EnrollmentStatus.Open,
+            Directions = new List<Direction> { directions[1], directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop15.jpg"
+        },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 16",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop16@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop16", "https://www.instagram.com/workshop16" },
+                PhoneNumber: "+380000000016"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 18,
+                MaxAge: 65,
+                Price: 350,
+                Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 16",
+                BuildingNumber: "16"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop16.jpg" },
+            Description = "Description 16",
+            Owner = "Owner 16",
+            Rating = 4.7f,
+            ReviewsCount = 15,
+            EnrollmentStatus = EnrollmentStatus.Closed,
+            Directions = new List<Direction> { directions[0], directions[1] },
+            CoverImageUri = "https://www.example.com/images/workshop16.jpg"
+        },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 17",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop17@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop17", "https://www.instagram.com/workshop17" },
+                PhoneNumber: "+380000000017"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 18,
+                MaxAge: 50,
+                Price: 400,
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 17",
+                BuildingNumber: "17"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop17.jpg" },
+            Description = "Description 17",
+            Owner = "Owner 17",
+            Rating = 4.4f,
+            ReviewsCount = 14,
+            EnrollmentStatus = EnrollmentStatus.Open,
+            Directions = new List<Direction> { directions[1], directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop17.jpg"
+        },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 18",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop18@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop18", "https://www.instagram.com/workshop18" },
+                PhoneNumber: "+380000000018"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 21,
+                MaxAge: 60,
+                Price: 100,
+                Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 18",
+                BuildingNumber: "18"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop18.jpg" },
+            Description = "Description 18",
+            Owner = "Owner 18",
+            Rating = 4.8f,
+            ReviewsCount = 19,
+            EnrollmentStatus = EnrollmentStatus.Open,
+            Directions = new List<Direction> { directions[0], directions[1] },
+            CoverImageUri = "https://www.example.com/images/workshop18.jpg"
+        },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 19",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop19@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop19", "https://www.instagram.com/workshop19" },
+                PhoneNumber: "+380000000019"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 18,
+                MaxAge: 55,
+                Price: 300,
+                Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 19",
+                BuildingNumber: "19"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop19.jpg" },
+            Description = "Description 19",
+            Owner = "Owner 19",
+            Rating = 3.7f,
+            ReviewsCount = 9,
+            EnrollmentStatus = EnrollmentStatus.Open,
+            Directions = new List<Direction> { directions[0], directions[1], directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop19.jpg"
+        },
+        new()
+        {
+            Id = new WorkshopId(Guid.NewGuid()),
+            Title = "Workshop 20",
+            ContactInformation = new ContactInfo
+            (
+                Email: "workshop20@gmail.com",
+                ContactLinks: new List<string>
+                    { "https://www.facebook.com/workshop20", "https://www.instagram.com/workshop20" },
+                PhoneNumber: "+380000000020"
+            ),
+            Constrains = new WorkshopConstrains(
+                MinAge: 10,
+                MaxAge: 60,
+                Price: 0,
+                Days: DaysBitMask.Tuesday | DaysBitMask.Thursday | DaysBitMask.Saturday,
+                DaysCount: 3
+            ),
+            Address = new Address
+            (
+                Region: "Київ",
+                City: "Київ",
+                Street: "Street 20",
+                BuildingNumber: "20"
+            ),
+            ImageUris = new List<string>
+                { "https://www.example.com/images/workshop20.jpg" },
+            Description = "Description 20",
+            Owner = "Owner 20",
+            Rating = 4.5f,
+            ReviewsCount = 22,
+            EnrollmentStatus = EnrollmentStatus.Open,
+            Directions = new List<Direction> { directions[1], directions[2] },
+            CoverImageUri = "https://www.example.com/images/workshop20.jpg"
+        }
     };
 }
