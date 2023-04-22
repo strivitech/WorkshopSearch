@@ -180,13 +180,15 @@ const Wrapper = styled.main`
     line-height: 2;
   }
   .info {
-    text-transform: capitalize;
     width: 300px;
     display: grid;
     grid-template-columns: 125px 1fr;
     span {
       font-weight: 700;
     }
+  }
+  .info a {
+    text-transform: none;
   }
 
   @media (min-width: 992px) {
