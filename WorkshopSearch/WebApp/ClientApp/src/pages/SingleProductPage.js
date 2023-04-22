@@ -24,6 +24,19 @@ const SingleProductPage = () => {
     fetchSingleProduct,
   } = useProductsContext();
 
+  const translateDayToUkrainian = (day) => {
+    const daysTranslations = {
+      'Monday': 'Понеділок',
+      'Tuesday': 'Вівторок',
+      'Wednesday': 'Середа',
+      'Thursday': 'Четвер',
+      'Friday': 'П’ятниця',
+      'Saturday': 'Субота',
+      'Sunday': 'Неділя',
+    };
+    return daysTranslations[day] || day;
+  };
+  
   useEffect(() => {
     fetchSingleProduct(`api/workshops/${id}`);
     // eslint-disable-next-line
@@ -85,19 +98,19 @@ const SingleProductPage = () => {
                 {formatPrice(price)}
             </p>
             <p className='info'>
-              <span>PhoneNumber :</span>
+              <span>Телефон:</span>
                 <span onClick={() => navigator.clipboard.writeText(phoneNumber)} style={{ cursor: 'pointer' }}>
                     {phoneNumber}
                 </span>
             </p>
               <p className='info'>
-                  <span>Email :</span>
+                  <span>Email:</span>
                   <span onClick={() => navigator.clipboard.writeText(email)} style={{ cursor: 'pointer' }}>
                     {email}
                   </span>
               </p>
             <p className='info'>
-              <span>ContactLinks :</span>
+              <span>Посилання:</span>
               {contactLinks.map((link, index) => (
                   <React.Fragment key={index}>
                     {index > 0 && <br />}
@@ -110,7 +123,7 @@ const SingleProductPage = () => {
                 {minAge}-{maxAge} років
             </p>
             <p className='info'>
-              <span>Directions :</span>
+              <span>Напрями:</span>
               {directions.map((direction, index) => (
                   <React.Fragment key={direction.id}>
                     {index > 0 && <br />}
@@ -119,19 +132,19 @@ const SingleProductPage = () => {
               ))}
             </p>
             <p className='info'>
-              <span>Address :</span>
+              <span>Адреса:</span>
               {address.region === address.city
                   ? `${address.city}, ${address.street}, ${address.buildingNumber}`
                   : `${address.region}, ${address.city}, ${address.street}, ${address.buildingNumber}`}
             </p>
               <p className='info'>
-                  <span>Working days:</span>
-                  {days.map((day, index) => (
-                      <React.Fragment key={index}>
-                          {index > 0 && <br />}
-                          {day}
-                      </React.Fragment>
-                  ))}
+                <span>Робочі дні:</span>
+                {days.map((day, index) => (
+                    <React.Fragment key={index}>
+                      {index > 0 && <br />}
+                      {translateDayToUkrainian(day)}
+                    </React.Fragment>
+                ))}
               </p>
           </section>
         </div>
