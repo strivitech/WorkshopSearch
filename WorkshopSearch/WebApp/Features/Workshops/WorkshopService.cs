@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using WebApp.Database.Main;
 using ErrorOr;
+using WebApp.Common.Application;
+using WebApp.Common.DTO;
 
 namespace WebApp.Features.Workshops;
 
@@ -31,19 +33,21 @@ public class WorkshopService : IWorkshopService
             : workshop.ToWorkshopResponse();
     }
 
-    public async Task<ErrorOr<List<ShortWorkshopResponse>>> GetByFilterAsync(WorkshopFilter filter)
+    public async Task<ErrorOr<PaginatedResponse<ShortWorkshopResponse>>> GetByFilterAsync(WorkshopFilter filter)
     {
         try
         {
             var expression = _filterExpressionBuilder.BuildExpression(filter);
-            var workshops = await _dbContext.Workshops
+            var workshopsQuery = _dbContext.Workshops
                 .Include(x => x.Directions)
                 .Where(expression)
                 .Skip((filter.From - 1) * filter.Size)
-                .Take(filter.Size)
-                .ToListAsync();
+                .Take(filter.Size);
 
-            return workshops.ToShortWorkshopResponse();
+            var workshops =
+                await PagedList<Workshop>.CreateAsync(workshopsQuery, filter.From, filter.Size);
+
+            return workshops.ToPaginatedShortWorkshopResponse();
         }
         catch (Exception e)
         {
@@ -52,22 +56,26 @@ public class WorkshopService : IWorkshopService
         }
     }
 
-    public async Task<ErrorOr<List<ShortWorkshopResponse>>> GetByDecisionMakingAnalysisAsync(WorkshopFilter filter)
+    public async Task<ErrorOr<PaginatedResponse<ShortWorkshopResponse>>> GetByDecisionMakingAnalysisAsync(
+        WorkshopFilter filter)
     {
         try
         {
             var analysisModels = await GetWorkshopsAsync(filter);
             if (!analysisModels.Any())
             {
-                return new List<ShortWorkshopResponse>(0);
+                return new PaginatedResponse<ShortWorkshopResponse>(
+                    new List<ShortWorkshopResponse>(), 0, filter.Size, 0);
             }
-            
+
+            var workshopsCount = analysisModels.Count;
+
             var ordering = await _workshopsDecisionMakingAnalysisService.OrderAnalysisModelsAsync(analysisModels);
             if (ordering.IsError)
             {
                 return Errors.Workshops.GetByDecisionMakingAnalysisFailure;
             }
-        
+
             var filteredIds = ordering.Value
                 .Skip((filter.From - 1) * filter.Size)
                 .Take(filter.Size)
@@ -77,8 +85,10 @@ public class WorkshopService : IWorkshopService
             var workshops = await GetByIds(filteredIds.Keys);
 
             CheckIfWorkshopCountCorrect();
-            return OrderWorkshopsByIds();
-            
+            var orderedWorkshopsByIds = OrderWorkshopsByIds();
+            return new PaginatedResponse<ShortWorkshopResponse>(orderedWorkshopsByIds, filter.From, filter.Size,
+                workshopsCount.CalculateTotalPages(filter.Size));
+
             void CheckIfWorkshopCountCorrect()
             {
                 if (filteredIds.Count != workshops.Count)
@@ -121,7 +131,8 @@ public class WorkshopService : IWorkshopService
             .Include(x => x.Directions)
             .Where(expression)
             .Select(x => new WorkshopAnalysisModel(x.Id.Value, x.Constrains.MinAge,
-                x.Constrains.MaxAge, x.Constrains.Price, x.Constrains.DaysCount, x.Rating, x.ReviewsCount, x.EnrollmentStatus))
+                x.Constrains.MaxAge, x.Constrains.Price, x.Constrains.DaysCount, x.Rating, x.ReviewsCount,
+                x.EnrollmentStatus))
             .ToListAsync();
 
         return workshops;

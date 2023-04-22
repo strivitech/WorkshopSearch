@@ -1,20 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Filters, ProductList } from '../components'
+import Pagination from "../components/Pagination";
+import {useProductsContext} from "../context/products_context";
 const ProductsPage = () => {
+  const { changePage, totalPages, currentPage } = useProductsContext();
+  
   return (
-    <main>
-      <Wrapper className='page'>
-        <div className='section-center products'>
-          <Filters />
-          <div>
-            <ProductList />
+      <main>
+        <Wrapper className='page'>
+          <div className='section-center products'>
+            <Filters />
+            <div>
+              <ProductList />
+              <Pagination
+                  totalPages={totalPages}
+                  currentPage={currentPage}
+                  changePage={changePage}
+              />
+            </div>
           </div>
-        </div>
-      </Wrapper>
-    </main>
-  )
-}
+        </Wrapper>
+      </main>
+  );
+};
 
 const Wrapper = styled.div`
   .products {

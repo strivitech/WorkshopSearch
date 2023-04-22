@@ -1,4 +1,5 @@
 ﻿using WebApp.Common.Application;
+using WebApp.Common.DTO;
 
 namespace WebApp.Features.Workshops;
 
@@ -24,4 +25,9 @@ public static class ToShortWorkshopResponseMapper
 
     public static List<ShortWorkshopResponse> ToShortWorkshopResponse(this IEnumerable<Workshop> workshops) =>
         workshops.Select(ToShortWorkshopResponse).ToList();
+
+    public static PaginatedResponse<ShortWorkshopResponse> ToPaginatedShortWorkshopResponse(
+        this PagedList<Workshop> workshopsPagedList) =>
+        new(workshopsPagedList.ToShortWorkshopResponse(), workshopsPagedList.PageNumber,
+            workshopsPagedList.PageSize, workshopsPagedList.TotalPages);
 }

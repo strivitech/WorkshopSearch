@@ -19,7 +19,7 @@ public class WorkshopsController : ControllerBase
     {
         var workshops = await _workshopService.GetByDecisionMakingAnalysisAsync(filter);
         return workshops.MatchFirst<IActionResult>(
-            onValue => onValue.Any() ? Ok(onValue) : NoContent(), 
+            onValue => onValue.Items.Any() ? Ok(onValue) : NoContent(), 
             onError => BadRequest(onError.Description));
     }
     

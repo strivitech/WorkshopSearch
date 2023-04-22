@@ -2,6 +2,6 @@
 
 public enum EnrollmentStatus : byte
 {
-    Open = 0,
-    Closed = 1,
+    Closed = 0,
+    Open = 1,
 }

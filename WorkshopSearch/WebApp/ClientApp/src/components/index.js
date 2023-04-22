@@ -11,6 +11,8 @@ import Filters from './Filters'
 import ProductList from './ProductList'
 import Stars from './Stars'
 import SearchableSelect from "./SearchableSelect";
+import Pagination from "./Pagination";
+import PaginationButton from "./PaginationButton";
 
 export {
     Navbar,
@@ -25,5 +27,7 @@ export {
     Filters,
     ProductList,
     Stars,
-    SearchableSelect
+    SearchableSelect,
+    Pagination,
+    PaginationButton
 }
