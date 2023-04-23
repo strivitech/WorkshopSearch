@@ -1,4 +1,4 @@
-version: '3.5'
+version: '3.8'
 name: WSearch
 
 services:
@@ -12,3 +12,30 @@ services:
       - POSTGRES_PASSWORD=admin
     ports:
       - 5532:5432
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.2.0
+    container_name: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - cluster.name=es-docker-cluster
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+volumes:
+  pg-data:
+    driver: local
+  es-data:
+    driver: local
