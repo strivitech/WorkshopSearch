@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApp.Database.Main;
+using WebApp.Elasticsearch;
 using WebApp.Features.Directions;
 using WebApp.Features.Workshops;
 
@@ -32,6 +33,9 @@ public static class Startup
         services.AddScoped<IWorkshopsDecisionMakingAnalysisService, WorkshopsDecisionMakingAnalysisService>();
         services.AddScoped<WorkshopAnalysisMetadata>();
         services.AddScoped<IDirectionsService, DirectionsService>();
+        
+        services.Configure<ElasticsearchSettings>(configuration.GetSection("Elasticsearch"));
+        services.AddSingleton<IElasticsearchService, ElasticsearchService>();
     }
 
     /// <summary>
