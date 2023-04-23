@@ -1,4 +1,5 @@
 using WebApp;
+using WebApp.Database.Main;
 using WebApp.Features.Directions;
 using WebApp.Features.Workshops;
 
@@ -15,6 +16,7 @@ app.Configure();
 try
 {
     // Add logs
+    app.ApplyApplicationDbContextMigrations();
     app.AddDirections();
     app.AddWorkshops();
 
