@@ -10,7 +10,8 @@ public class ElasticsearchService : IElasticsearchService
     public ElasticsearchService(IOptions<ElasticsearchSettings> settings)
     {
         var uri = new Uri(settings.Value.Url);
-        var connectionSettings = new ConnectionSettings(uri);
+        var connectionSettings = new ConnectionSettings(uri)
+            .EnableApiVersioningHeader();
         _client = new ElasticClient(connectionSettings);
     }
 
