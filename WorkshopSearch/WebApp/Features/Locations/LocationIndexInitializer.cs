@@ -5,21 +5,22 @@ namespace WebApp.Features.Locations
 {
     public class LocationIndexInitializer : ILocationIndexInitializer
     {
+        private readonly LocationSeeder _locationSeeder;
         private readonly ElasticClient _client;
 
-        public LocationIndexInitializer(IElasticsearchService elasticsearchService)
+        public LocationIndexInitializer(IElasticsearchService elasticsearchService, LocationSeeder locationSeeder)
         {
+            _locationSeeder = locationSeeder;
             _client = elasticsearchService.GetClient();
         }
 
         public async Task InitializeAsync()
         {
-            const string indexName = "locations";
-            var existsResponse = await _client.Indices.ExistsAsync(indexName);
+            var existsResponse = await _client.Indices.ExistsAsync(IndexNames.Locations);
 
             if (!existsResponse.Exists)
             {
-                var createIndexResponse = await _client.Indices.CreateAsync(indexName, c => c
+                var createIndexResponse = await _client.Indices.CreateAsync(IndexNames.Locations, c => c
                     .Settings(s => s
                         .Analysis(a => a
                             .Analyzers(an => an
@@ -47,6 +48,8 @@ namespace WebApp.Features.Locations
                     throw new Exception("Failed to create Elasticsearch index.");
                 }
             }
+            
+            await _locationSeeder.SeedDefaultValuesAsync();
         }
     }
 }

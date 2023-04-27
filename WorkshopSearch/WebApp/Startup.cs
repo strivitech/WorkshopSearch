@@ -39,6 +39,7 @@ public static class Startup
         services.AddSingleton<IElasticsearchService, ElasticsearchService>();
         services.AddScoped<ILocationIndexInitializer, LocationIndexInitializer>();
         services.AddHostedService<ElasticsearchIndexHostedService>();
+        services.AddSingleton<LocationSeeder>();
     }
 
     /// <summary>
