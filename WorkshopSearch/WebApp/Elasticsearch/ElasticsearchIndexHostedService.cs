@@ -1,6 +1,6 @@
-﻿using WebApp.Elasticsearch;
+﻿using WebApp.Features.Locations;
 
-namespace WebApp.Features.Locations;
+namespace WebApp.Elasticsearch;
 
 public class ElasticsearchIndexHostedService : IHostedService
 {

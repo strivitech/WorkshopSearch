@@ -40,6 +40,7 @@ public static class Startup
         services.AddScoped<ILocationIndexInitializer, LocationIndexInitializer>();
         services.AddHostedService<ElasticsearchIndexHostedService>();
         services.AddSingleton<LocationSeeder>();
+        services.AddScoped<ILocationsService, LocationsService>();
     }
 
     /// <summary>
