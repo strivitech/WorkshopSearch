@@ -29,11 +29,14 @@ namespace WebApp.Features.Locations
                             )
                         )
                     )
-                    .Map<Location>(m => m
+                    .Map<LocationEsModel>(m => m
                         .Properties(p => p
                             .Text(t => t
-                                .Name(n => n.LocationName)
+                                .Name(n => n.Name)
                                 .Analyzer("ukrainian_analyzer")
+                            )
+                            .Keyword(k => k
+                                .Name(n => n.Id)
                             )
                         )
                     )
