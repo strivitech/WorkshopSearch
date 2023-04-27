@@ -2,6 +2,7 @@
 using WebApp.Database.Main;
 using WebApp.Elasticsearch;
 using WebApp.Features.Directions;
+using WebApp.Features.Locations;
 using WebApp.Features.Workshops;
 
 namespace WebApp;
@@ -36,6 +37,8 @@ public static class Startup
         
         services.Configure<ElasticsearchSettings>(configuration.GetSection("Elasticsearch"));
         services.AddSingleton<IElasticsearchService, ElasticsearchService>();
+        services.AddScoped<ILocationIndexInitializer, LocationIndexInitializer>();
+        services.AddHostedService<ElasticsearchIndexHostedService>();
     }
 
     /// <summary>
