@@ -38,7 +38,6 @@ public class LocationSeeder
             var indexManyResponse = await _client.IndexManyAsync(locations, IndexNames.Locations);
             if (!indexManyResponse.IsValid)
             {
-                Console.WriteLine(JsonSerializer.Serialize(indexManyResponse.ItemsWithErrors));
                 throw new InvalidOperationException("Failed to index locations.");
             }
         }
