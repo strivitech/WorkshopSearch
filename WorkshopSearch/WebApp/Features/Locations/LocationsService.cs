@@ -11,8 +11,8 @@ public class LocationsService : ILocationsService
     {
         _elasticsearchService = elasticsearchService;
     }
-    
-    public async Task<List<LocationEsModel>> GetBySearchTermAsync(string searchTerm)
+
+    public async Task<List<LocationResponse>> GetBySearchTermAsync(string searchTerm)
     {
         var client = _elasticsearchService.GetClient();
         var searchResponse = await client.SearchAsync<LocationEsModel>(s => s
@@ -31,6 +31,7 @@ public class LocationsService : ILocationsService
             throw new InvalidOperationException("Failed to search locations.");
         }
 
-        return searchResponse.Documents.ToList();
+        return searchResponse.Documents.Select(locationEs => new LocationResponse
+            { Name = locationEs.Name }).ToList();
     }
 }

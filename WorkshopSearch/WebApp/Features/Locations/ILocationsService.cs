@@ -2,5 +2,5 @@
 
 public interface ILocationsService
 {
-    Task<List<LocationEsModel>> GetBySearchTermAsync(string searchTerm);
+    Task<List<LocationResponse>> GetBySearchTermAsync(string searchTerm);
 }
