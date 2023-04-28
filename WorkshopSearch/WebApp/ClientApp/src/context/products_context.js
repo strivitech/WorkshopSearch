@@ -76,10 +76,13 @@ export const ProductsProvider = ({children}) => {
 
     useEffect(() => {
         setCurrentPage(1);
+        fetchData(1);
     }, [debouncedFilters]);
 
     useEffect(() => {
-        fetchData(currentPage);
+        if(currentPage !== 1) {
+            fetchData(currentPage);
+        }
     }, [currentPage]);
 
     const fetchData = async (page) => {
