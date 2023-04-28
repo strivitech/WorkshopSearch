@@ -1,22 +1,43 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
 
-const SearchableSelect = ({ options, name, placeholder, value, onChange }) => {
+const SearchableSelect = ({ name, placeholder, value, onChange }) => {
     const [inputValue, setInputValue] = useState('');
-    const [filteredOptions, setFilteredOptions] = useState(options);
+    const [filteredOptions, setFilteredOptions] = useState([]);
     const selectRef = useRef(null);
 
     useEffect(() => {
-        const filterOptions = () => {
-            const searchValue = inputValue.toLowerCase();
-            const newOptions = options.filter(option =>
-                option.label.toLowerCase().includes(searchValue)
-            );
-            setFilteredOptions(newOptions);
+        const fetchOptions = async () => {
+            if (inputValue.trim() === '') {
+                setFilteredOptions([]);
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/locations?word=${inputValue}`);
+                const data = await response.json();
+                const newOptions = data.map((location) => {
+                    const nameArray = location.name.split(',');
+                    let label;
+                    if (nameArray.length === 2 && nameArray[0] === nameArray[1]) {
+                        label = nameArray[1];
+                    } else {
+                        label = location.name;
+                    }
+                    return {
+                        value: location.name,
+                        label: label,
+                    };
+                });
+
+                setFilteredOptions(newOptions);
+            } catch (error) {
+                console.error('Error fetching locations:', error);
+            }
         };
 
-        filterOptions();
-    }, [inputValue, options]);
+        fetchOptions();
+    }, [inputValue]);
 
     const handleChange = (selectedOption) => {
         onChange({
@@ -27,7 +48,9 @@ const SearchableSelect = ({ options, name, placeholder, value, onChange }) => {
         });
     };
 
-    const selectedOption = options.find(option => option.value === value);
+    const selectedOption = filteredOptions.find(
+        (option) => option.value === value
+    );
 
     return (
         <Select
@@ -39,9 +62,14 @@ const SearchableSelect = ({ options, name, placeholder, value, onChange }) => {
             onInputChange={setInputValue}
             isSearchable={true}
             menuPortalTarget={document.body}
+            filterOption={null}
             styles={{
-                menuPortal: base => ({ ...base, zIndex: 9999 }),
-                menuList: base => ({ ...base, maxHeight: '200px', overflowY: 'scroll' })
+                menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+                menuList: (base) => ({
+                    ...base,
+                    maxHeight: '200px',
+                    overflowY: 'scroll',
+                }),
             }}
         />
     );
