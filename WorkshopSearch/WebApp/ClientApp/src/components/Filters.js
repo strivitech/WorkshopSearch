@@ -34,12 +34,6 @@ const Filters = () => {
         fetchCategories();
     }, []);
     
-    const options = [
-        { value: 'Київ,Київ', label: 'Київ' },
-        { value: 'Київська,Боярка', label: 'Київська, Боярка' },
-        { value: 'Київська,Кагарлик', label: 'Київська, Кагарлик' },
-        // ... more options
-    ];
     return (
         <Wrapper>
             <div className='content'>
@@ -47,9 +41,8 @@ const Filters = () => {
 
                     <div className='form-control'>
                         <SearchableSelect
-                            options={options}
                             name='regionWithCity'
-                            placeholder="Select an option"
+                            placeholder='Select an option'
                             value={regionWithCity}
                             onChange={updateFilters}
                         />
