@@ -43,6 +43,7 @@ public static class Startup
         services.AddScoped<ILocationsService, LocationsService>();
         services.AddScoped<IWorkshopIndexInitializer, WorkshopIndexInitializer>();
         services.AddScoped<WorkshopEsSeeder>();
+        services.AddScoped<IWorkshopsTextSearcher, WorkshopsTextSearcher>();
     }
 
     /// <summary>
