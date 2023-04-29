@@ -54,6 +54,7 @@ public class WorkshopEsSeeder
             .Select(workshop => new WorkshopEsModel
             {
                 Id = workshop.Id.Value,
+                CategoryIds = workshop.Directions.Select(x => x.Id.Value).ToList(),
                 Region = workshop.Address.Region,
                 City = workshop.Address.City,
                 Title = workshop.Title,

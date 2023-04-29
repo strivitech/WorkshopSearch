@@ -31,17 +31,20 @@ public class WorkshopIndexInitializer : IWorkshopIndexInitializer
                     )
                 )
                 .Map<WorkshopEsModel>(m => m
+                    .AutoMap()
                     .Properties(p => p
-                        .Text(t => t
-                            .Name(n => n.Title)
-                            .Analyzer(AnalyzerNames.Icu)
-                        )
-                        .Text(t => t
-                            .Name(n => n.Description)
-                            .Analyzer(AnalyzerNames.Icu)
-                        )
                         .Keyword(k => k
                             .Name(n => n.Id)
+                        )
+                    )
+                    .DynamicTemplates(dt => dt
+                        .DynamicTemplate("IcuAnalyzerTemplate", t => t
+                            .MatchMappingType("string")
+                            .Mapping(mp => mp
+                                .Text(tpd => tpd
+                                    .Analyzer(AnalyzerNames.Icu)
+                                )
+                            )
                         )
                     )
                 )
