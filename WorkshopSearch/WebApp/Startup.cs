@@ -42,6 +42,7 @@ public static class Startup
         services.AddSingleton<LocationSeeder>();
         services.AddScoped<ILocationsService, LocationsService>();
         services.AddScoped<IWorkshopIndexInitializer, WorkshopIndexInitializer>();
+        services.AddScoped<WorkshopEsSeeder>();
     }
 
     /// <summary>

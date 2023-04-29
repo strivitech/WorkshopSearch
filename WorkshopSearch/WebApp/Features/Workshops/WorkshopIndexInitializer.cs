@@ -5,10 +5,12 @@ namespace WebApp.Features.Workshops;
 
 public class WorkshopIndexInitializer : IWorkshopIndexInitializer
 {
+    private readonly WorkshopEsSeeder _workshopEsSeeder;
     private readonly ElasticClient _client;
 
-    public WorkshopIndexInitializer(IElasticsearchService elasticsearchService)
+    public WorkshopIndexInitializer(WorkshopEsSeeder workshopEsSeeder, IElasticsearchService elasticsearchService)
     {
+        _workshopEsSeeder = workshopEsSeeder;
         _client = elasticsearchService.GetClient();
     }
 
@@ -50,5 +52,7 @@ public class WorkshopIndexInitializer : IWorkshopIndexInitializer
                 throw new Exception("Failed to create Elasticsearch index.");
             }
         }
+        
+        await _workshopEsSeeder.SeedDefaultValuesAsync();
     }
 }

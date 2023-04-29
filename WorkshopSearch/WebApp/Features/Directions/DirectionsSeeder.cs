@@ -16,7 +16,7 @@ public static class DirectionsSeeder
         }
     }
     
-    private static IEnumerable<Direction> Directions { get; } = new List<Direction>
+    private static List<Direction> Directions { get; } = new List<Direction>
     {
         new()
         {
