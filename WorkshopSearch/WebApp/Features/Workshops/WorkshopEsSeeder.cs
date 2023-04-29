@@ -54,6 +54,8 @@ public class WorkshopEsSeeder
             .Select(workshop => new WorkshopEsModel
             {
                 Id = workshop.Id.Value,
+                Region = workshop.Address.Region,
+                City = workshop.Address.City,
                 Title = workshop.Title,
                 Description = workshop.Description,
             }).ToList();
