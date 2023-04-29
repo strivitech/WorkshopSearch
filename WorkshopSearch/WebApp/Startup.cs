@@ -41,6 +41,7 @@ public static class Startup
         services.AddHostedService<ElasticsearchIndexHostedService>();
         services.AddSingleton<LocationSeeder>();
         services.AddScoped<ILocationsService, LocationsService>();
+        services.AddScoped<IWorkshopIndexInitializer, WorkshopIndexInitializer>();
     }
 
     /// <summary>
