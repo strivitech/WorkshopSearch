@@ -43,6 +43,11 @@ public class WorkshopsTextSearcher : IWorkshopsTextSearcher
             )
             .Source(sf => sf.Includes(i => i.Field(f => f.Id)))
         );
+        
+        if (!searchResponse.IsValid)
+        {
+            throw new InvalidOperationException("Failed to search workshops.");
+        }
 
         return searchResponse.Documents.Select(w => w.Id).ToList();
     }
