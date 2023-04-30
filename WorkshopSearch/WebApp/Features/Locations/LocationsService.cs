@@ -24,6 +24,8 @@ public class LocationsService : ILocationsService
                     .Query(searchTerm)
                 )
             )
+            .Source(x => 
+                x.Includes(fd => fd.Field(f => f.Name)))
         );
 
         if (!searchResponse.IsValid)
