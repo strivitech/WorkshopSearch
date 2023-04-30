@@ -20,7 +20,33 @@ public class WorkshopFilterExpressionBuilder : IWorkshopFilterExpressionBuilder
 
         return expression;
     }
+    
+    public Expression<Func<Workshop, bool>> BuildExpression(WorkshopWithoutTextSearchFilter filter)
+    {
+        Expression<Func<Workshop, bool>> expression = PredicateBuilder.True<Workshop>();
+        
+        expression = FilterIds(filter, expression);
+        expression = FilterMinAge(filter, expression);
+        expression = FilterMaxAge(filter, expression);
+        expression = FilterPrice(filter, expression);
+        expression = FilterWorkingDays(filter, expression);
 
+        return expression;
+    }
+
+    private static Expression<Func<Workshop, bool>> FilterIds(WorkshopWithoutTextSearchFilter filter,
+        Expression<Func<Workshop, bool>> expression)
+    {
+        if (filter.Ids is not null && filter.Ids.Any())
+        {
+            expression = expression.And(workshop => filter.Ids
+                .Select(x => new WorkshopId(x))
+                .Contains(workshop.Id));
+        }
+
+        return expression;
+    }
+    
     private static Expression<Func<Workshop, bool>> FilterAddress(WorkshopFilter filter,
         Expression<Func<Workshop, bool>> expression)
     {
@@ -32,6 +58,18 @@ public class WorkshopFilterExpressionBuilder : IWorkshopFilterExpressionBuilder
     }
     
     private static Expression<Func<Workshop, bool>> FilterWorkingDays(WorkshopFilter filter,
+        Expression<Func<Workshop, bool>> expression)
+    {
+        if (filter.WorkingDays is not null && filter.WorkingDays.Any())
+        {
+            var days = filter.WorkingDays.Aggregate((current, next) => current | next);
+            expression = expression.And(workshop => (workshop.Constrains.Days & days) > 0);
+        }
+
+        return expression;
+    }
+    
+    private static Expression<Func<Workshop, bool>> FilterWorkingDays(WorkshopWithoutTextSearchFilter filter,
         Expression<Func<Workshop, bool>> expression)
     {
         if (filter.WorkingDays is not null && filter.WorkingDays.Any())
@@ -58,6 +96,22 @@ public class WorkshopFilterExpressionBuilder : IWorkshopFilterExpressionBuilder
 
         return expression;
     }
+    
+    private static Expression<Func<Workshop, bool>> FilterPrice(WorkshopWithoutTextSearchFilter filter,
+        Expression<Func<Workshop, bool>> expression)
+    {
+        if (filter.MinPrice != WorkshopDataConstants.Filter.MinPriceDefaultValue)
+        {
+            expression = expression.And(workshop => workshop.Constrains.Price >= filter.MinPrice);
+        }
+
+        if (filter.MaxPrice != WorkshopDataConstants.Filter.MaxPriceDefaultValue)
+        {
+            expression = expression.And(workshop => workshop.Constrains.Price <= filter.MaxPrice);
+        }
+
+        return expression;
+    }
 
     private static Expression<Func<Workshop, bool>> FilterMaxAge(WorkshopFilter filter,
         Expression<Func<Workshop, bool>> expression)
@@ -69,8 +123,30 @@ public class WorkshopFilterExpressionBuilder : IWorkshopFilterExpressionBuilder
 
         return expression;
     }
+    
+    private static Expression<Func<Workshop, bool>> FilterMaxAge(WorkshopWithoutTextSearchFilter filter,
+        Expression<Func<Workshop, bool>> expression)
+    {
+        if (filter.MaxAge != WorkshopDataConstants.Filter.MaxAgeDefaultValue)
+        {
+            expression = expression.And(workshop => workshop.Constrains.MaxAge <= filter.MaxAge);
+        }
+
+        return expression;
+    }
 
     private static Expression<Func<Workshop, bool>> FilterMinAge(WorkshopFilter filter,
+        Expression<Func<Workshop, bool>> expression)
+    {
+        if (filter.MinAge != WorkshopDataConstants.Filter.MinAgeDefaultValue)
+        {
+            expression = expression.And(workshop => workshop.Constrains.MinAge >= filter.MinAge);
+        }
+
+        return expression;
+    }
+    
+    private static Expression<Func<Workshop, bool>> FilterMinAge(WorkshopWithoutTextSearchFilter filter,
         Expression<Func<Workshop, bool>> expression)
     {
         if (filter.MinAge != WorkshopDataConstants.Filter.MinAgeDefaultValue)
