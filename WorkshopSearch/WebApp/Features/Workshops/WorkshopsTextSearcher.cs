@@ -36,6 +36,7 @@ public class WorkshopsTextSearcher : IWorkshopsTextSearcher
                                 .Field(wem => wem.Description)
                             )
                             .Query(filter.Text)
+                            .Fuzziness(Fuzziness.Auto)
                         )
                     )
                 )
