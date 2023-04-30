@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Database.Main;
 using ErrorOr;
@@ -10,15 +11,18 @@ public class WorkshopService : IWorkshopService
 {
     private readonly IWorkshopsDecisionMakingAnalysisService _workshopsDecisionMakingAnalysisService;
     private readonly IWorkshopFilterExpressionBuilder _filterExpressionBuilder;
+    private readonly IWorkshopsTextSearcher _workshopsTextSearcher;
     private readonly ApplicationDbContext _dbContext;
 
     public WorkshopService(
         IWorkshopsDecisionMakingAnalysisService workshopsDecisionMakingAnalysisService,
         IWorkshopFilterExpressionBuilder filterExpressionBuilder,
+        IWorkshopsTextSearcher workshopsTextSearcher,
         ApplicationDbContext dbContext)
     {
         _workshopsDecisionMakingAnalysisService = workshopsDecisionMakingAnalysisService;
         _filterExpressionBuilder = filterExpressionBuilder;
+        _workshopsTextSearcher = workshopsTextSearcher;
         _dbContext = dbContext;
     }
 
@@ -37,7 +41,8 @@ public class WorkshopService : IWorkshopService
     {
         try
         {
-            var expression = _filterExpressionBuilder.BuildExpression(filter);
+            var expression = await BuildExpression(filter);
+
             var workshopsQuery = _dbContext.Workshops
                 .Include(x => x.Directions)
                 .Where(expression)
@@ -113,11 +118,41 @@ public class WorkshopService : IWorkshopService
             return Errors.Workshops.GetByDecisionMakingAnalysisFailure;
         }
     }
+    
+    private async Task<Expression<Func<Workshop, bool>>> BuildExpression(WorkshopFilter filter)
+    {
+        Expression<Func<Workshop, bool>> buildExpression;
+
+        if (filter.Text is not null)
+        {
+            var idsToSearch = await _workshopsTextSearcher.FindIdsAsync(
+                new TextSearcherFilter(
+                    filter.CategoryId!.Value,
+                    filter.RegionWithCity.Region,
+                    filter.RegionWithCity.City,
+                    filter.Text));
+
+            var filterWithoutTextSearch = new WorkshopWithoutTextSearchFilter(
+                idsToSearch,
+                filter.MinAge,
+                filter.MaxAge,
+                filter.MinPrice,
+                filter.MaxPrice,
+                filter.WorkingDays);
+
+            buildExpression = _filterExpressionBuilder.BuildExpression(filterWithoutTextSearch);
+        }
+        else
+        {
+            buildExpression = _filterExpressionBuilder.BuildExpression(filter);
+        }
+
+        return buildExpression;
+    }
 
     private async Task<List<ShortWorkshopResponse>> GetByIds(IEnumerable<Guid> ids)
     {
         var workshops = await _dbContext.Workshops
-            .Include(x => x.Directions)
             .Where(x => ids.Select(id => new WorkshopId(id)).Contains(x.Id))
             .ToListAsync();
 
@@ -126,7 +161,7 @@ public class WorkshopService : IWorkshopService
 
     private async Task<List<WorkshopAnalysisModel>> GetWorkshopsAsync(WorkshopFilter filter)
     {
-        var expression = _filterExpressionBuilder.BuildExpression(filter);
+        var expression = await BuildExpression(filter);
         var workshops = await _dbContext.Workshops
             .Include(x => x.Directions)
             .Where(expression)

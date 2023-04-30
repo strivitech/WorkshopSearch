@@ -1,4 +1,5 @@
 ﻿using WebApp.Features.Locations;
+using WebApp.Features.Workshops;
 
 namespace WebApp.Elasticsearch;
 
@@ -14,11 +15,13 @@ public class ElasticsearchIndexHostedService : IHostedService
     public async Task StartAsync(CancellationToken cancellationToken)
     {
         using var scope = _serviceProvider.CreateScope();
-        var indexInitializer = scope.ServiceProvider.GetRequiredService<ILocationIndexInitializer>();
+        var locationIndexInitializer = scope.ServiceProvider.GetRequiredService<ILocationIndexInitializer>();
+        var workshopIndexInitializer = scope.ServiceProvider.GetRequiredService<IWorkshopIndexInitializer>();
 
         try
         {
-            await indexInitializer.InitializeAsync();
+            await locationIndexInitializer.InitializeAsync();
+            await workshopIndexInitializer.InitializeAsync();
         }
         catch (Exception ex)
         {
