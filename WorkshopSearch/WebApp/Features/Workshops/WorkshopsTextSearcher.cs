@@ -7,6 +7,7 @@ namespace WebApp.Features.Workshops;
 public class WorkshopsTextSearcher : IWorkshopsTextSearcher
 {
     private readonly ElasticClient _elasticClient;
+    private const int MaxSizeResponse = 1000000;
 
     public WorkshopsTextSearcher(IElasticsearchService elasticsearchService)
     {
@@ -39,6 +40,7 @@ public class WorkshopsTextSearcher : IWorkshopsTextSearcher
                     )
                 )
             )
+            .Size(MaxSizeResponse)
             .Source(sf => sf.Includes(i => i.Field(f => f.Id)))
         );
         
