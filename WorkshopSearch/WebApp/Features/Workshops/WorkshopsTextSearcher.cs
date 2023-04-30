@@ -7,7 +7,7 @@ namespace WebApp.Features.Workshops;
 public class WorkshopsTextSearcher : IWorkshopsTextSearcher
 {
     private readonly ElasticClient _elasticClient;
-    private const int MaxSizeResponse = 1000000;
+    private const int MaxSizeResponse = 10000;
 
     public WorkshopsTextSearcher(IElasticsearchService elasticsearchService)
     {
