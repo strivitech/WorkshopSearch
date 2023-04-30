@@ -153,7 +153,6 @@ public class WorkshopService : IWorkshopService
     private async Task<List<ShortWorkshopResponse>> GetByIds(IEnumerable<Guid> ids)
     {
         var workshops = await _dbContext.Workshops
-            .Include(x => x.Directions)
             .Where(x => ids.Select(id => new WorkshopId(id)).Contains(x.Id))
             .ToListAsync();
 
