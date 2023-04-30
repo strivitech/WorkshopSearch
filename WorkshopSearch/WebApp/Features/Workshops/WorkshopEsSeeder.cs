@@ -49,8 +49,7 @@ public class WorkshopEsSeeder
     {
         ThrowIfNoWorkshops();
 
-        var workshopEsModels = WorkshopsSeeder
-            .Workshops(_applicationDbContext)
+        var workshopEsModels = _applicationDbContext.Workshops
             .Select(workshop => new WorkshopEsModel
             {
                 Id = workshop.Id.Value,

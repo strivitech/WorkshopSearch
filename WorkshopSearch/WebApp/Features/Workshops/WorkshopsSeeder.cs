@@ -19,7 +19,7 @@ public static class WorkshopsSeeder
         }
     }
 
-    internal static IEnumerable<Workshop> Workshops(ApplicationDbContext applicationDbContext)
+    private static IEnumerable<Workshop> Workshops(ApplicationDbContext applicationDbContext)
     {
         if (!applicationDbContext.Directions.Any())
         {
