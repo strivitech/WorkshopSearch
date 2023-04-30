@@ -31,8 +31,6 @@ public class WorkshopsTextSearcher : IWorkshopsTextSearcher
                             .Terms(filter.CategoryId)),
                         mu => mu.MultiMatch(mm => mm
                             .Fields(fd => fd
-                                .Field(wem => wem.Region)
-                                .Field(wem => wem.City)
                                 .Field(wem => wem.Title)
                                 .Field(wem => wem.Description)
                             )
