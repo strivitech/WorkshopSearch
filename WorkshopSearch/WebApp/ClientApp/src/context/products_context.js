@@ -117,19 +117,34 @@ export const ProductsProvider = ({children}) => {
         const selectedDays = Object.keys(filters.workingDays).filter(
             (key) => filters.workingDays[key],
         );
-        if (selectedDays.length > 0) {
-            filtersToUri.workshop_days = selectedDays.join(',');
-        }
 
-        let urlParams = new URLSearchParams(filtersToUri).toString();
+        selectedDays.forEach((day) => {
+            filtersToUri[`workingDays`] = filtersToUri[`workingDays`] || [];
+            filtersToUri[`workingDays`].push(day);
+        });
+
+        let urlParams = new URLSearchParams();
+
+        Object.keys(filtersToUri).forEach((key) => {
+            if (Array.isArray(filtersToUri[key])) {
+                filtersToUri[key].forEach((value) => {
+                    urlParams.append(key, value);
+                });
+            } else {
+                urlParams.append(key, filtersToUri[key]);
+            }
+        });
+
+        let params = urlParams.toString();
         const from = page;
         const size = 9;
-        if (urlParams.length > 0) {
-            fetchProducts(`api/workshops` + '?' + urlParams, from, size);
+        if (params.length > 0) {
+            fetchProducts(`api/workshops` + '?' + params, from, size);
         } else {
             fetchProducts(`api/workshops`, from, size);
         }
     };
+
 
     const openSidebar = () => {
         dispatch({ type: SIDEBAR_OPEN });
