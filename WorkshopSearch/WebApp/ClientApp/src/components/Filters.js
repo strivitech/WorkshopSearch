@@ -179,7 +179,11 @@ const Filters = () => {
                         />
                     </div>
                 </form>
-                <button type='button' className='clear-btn' onClick={clearFilters}>
+                <button
+                    type='button'
+                    className='clear-btn'
+                    onClick={() => window.location.reload()}
+                >
                     Очистити фільтри
                 </button>
             </div>
