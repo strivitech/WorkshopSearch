@@ -73,6 +73,7 @@ export const ProductsProvider = ({children}) => {
     });
     const [state, dispatch] = useReducer(reducer, initialState);
     const debouncedFilters = useDebounce(filters, DEBOUNCE_DELAY);
+    const [pageChanged, setPageChanged] = useState(false);
 
     useEffect(() => {
         setCurrentPage(1);
@@ -80,10 +81,12 @@ export const ProductsProvider = ({children}) => {
     }, [debouncedFilters]);
 
     useEffect(() => {
-        if(currentPage !== 1) {
+        if (pageChanged) {
             fetchData(currentPage);
+            setPageChanged(false);
         }
-    }, [currentPage]);
+    }, [currentPage, pageChanged]);
+
 
     const fetchData = async (page) => {
         let filtersToUri = {};
@@ -152,8 +155,9 @@ export const ProductsProvider = ({children}) => {
     const closeSidebar = () => {
         dispatch({ type: SIDEBAR_CLOSE });
     };
-
+    
     const changePage = (newPage) => {
+        setPageChanged(true);
         setCurrentPage(newPage);
     };
 
