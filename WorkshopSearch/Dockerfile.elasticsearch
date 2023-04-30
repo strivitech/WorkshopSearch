@@ -1,0 +1,7 @@
+FROM docker.elastic.co/elasticsearch/elasticsearch:8.2.0
+
+RUN ./bin/elasticsearch-plugin install analysis-icu && \
+    ./bin/elasticsearch-plugin install mapper-murmur3 && \
+    ./bin/elasticsearch-plugin install mapper-size
+
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
