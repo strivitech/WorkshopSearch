@@ -45,7 +45,7 @@ public class WorkshopsDecisionMakingAnalysisService : IWorkshopsDecisionMakingAn
                     wam.MaxAge,
                     wam.DaysCount,
                     (double)wam.Price,
-                    wam.Rating,
+                    SetRating(wam.Rating),
                     wam.ReviewsCount,
                     ConvertEnrollmentStatus(wam.EnrollmentStatus)
                 })).ToArray());
@@ -60,6 +60,12 @@ public class WorkshopsDecisionMakingAnalysisService : IWorkshopsDecisionMakingAn
                 EnrollmentStatus.Closed => 0,
                 _ => throw new ArgumentOutOfRangeException(nameof(enrollmentStatus), "Unknown enrollment status")
             };
+        }
+
+        float SetRating(float rating)
+        {
+            const float defaultRatingValue = 2.5f;
+            return rating == 0f ? defaultRatingValue : rating;
         }
     }
 }

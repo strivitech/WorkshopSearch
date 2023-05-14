@@ -31,12 +31,12 @@ public class WorkshopAnalysisMetadata
     public virtual List<Weight> GetWeights =>
         new()
         {
-            new Weight(0.05),
-            new Weight(0.05),
+            new Weight(0.025),
+            new Weight(0.025),
             new Weight(0.1),
-            new Weight(0.25),
-            new Weight(0.3),
+            new Weight(0.2),
+            new Weight(0.35),
             new Weight(0.1),
-            new Weight(0.15)
+            new Weight(0.2)
         };
 }
