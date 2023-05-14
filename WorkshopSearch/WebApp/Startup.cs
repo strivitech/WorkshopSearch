@@ -21,7 +21,14 @@ public static class Startup
         var services = builder.Services;
         var configuration = builder.Configuration;
         
-        builder.Services.AddSwaggerGen();
+        services.AddCors(config =>
+            config.AddPolicy(
+                "AllowedOrigins",
+                p => p.WithOrigins(configuration["AllowedCorsOrigins"]!.Split(','))
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()));
+        services.AddSwaggerGen();
 
         services.AddDbContext<ApplicationDbContext>(options =>
             options
@@ -62,8 +69,10 @@ public static class Startup
 
         app.UseHttpsRedirection();
         
-        app.UseStaticFiles();
+        app.UseCors("AllowedOrigins");
 
+        app.UseStaticFiles();
+        
         app.UseAuthentication();
         app.UseAuthorization();
 
