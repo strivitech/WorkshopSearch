@@ -59,7 +59,11 @@ public static class WorkshopsSeeder
                     BuildingNumber: "82"
                 ),
                 ImageUris = new List<string>
-                    { "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" },
+                {
+                    "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                },
                 Description =
                     "Курс з розробки веб-додатків на React.js для початківців. Ви дізнаєтеся, як створювати модерні веб-інтерфейси з використанням одного з найпопулярніших фреймворків на ринку.",
                 Owner = "WebDev School",
@@ -103,7 +107,9 @@ public static class WorkshopsSeeder
                 ),
                 ImageUris = new List<string>
                 {
-                    "https://images.unsplash.com/photo-1531497258014-b5736f376b1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                    "https://images.unsplash.com/photo-1531497258014-b5736f376b1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                 },
                 Description = "Опис: На цьому курсі ви навчитеся програмувати на мові Python.",
                 Owner = "Власник: Іванов Іван",
@@ -142,7 +148,11 @@ public static class WorkshopsSeeder
                     BuildingNumber: "1"
                 ),
                 ImageUris = new List<string>
-                    { "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" },
+                {
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                },
                 Description =
                     "Курс призначений для початківців, які мають бажання навчитися розробляти веб-додатки на C# та використовувати платформу .Net для створення масштабованих та безпечних додатків. Під час курсу студенти навчаться розробляти веб-додатки з використанням ASP.Net Core, Entity Framework Core та Azure. Також будуть розглянуті практичні завдання, що допоможуть зрозуміти теорію та застосувати її на практиці.",
                 Owner = "Компанія ITPro",
@@ -178,7 +188,11 @@ public static class WorkshopsSeeder
                     BuildingNumber: "16"
                 ),
                 ImageUris = new List<string>
-                    { "https://images.unsplash.com/photo-1494322296366-b46227baa318?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" },
+                {
+                    "https://images.unsplash.com/photo-1494322296366-b46227baa318?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                },
                 Description =
                     "Курс Програмування на платформі .NET призначений для тих, хто бажає розширити свої знання в галузі програмування. Курс надасть учасникам базові знання в програмуванні, а також допоможе збільшити рівень знань в даній сфері. Після проходження курсу учасники отримають сертифікат.",
                 Owner = "Network Workshop",
@@ -214,7 +228,11 @@ public static class WorkshopsSeeder
                     BuildingNumber: "1"
                 ),
                 ImageUris = new List<string>
-                    { "https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" },
+                {
+                    "https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                },
                 Description =
                     "Курс з веб-розробки на мові Python допоможе вам створити власний веб-сайт, розібратися у фреймворках Flask та Django, а також дізнатися про розробку API на Python.",
                 Owner = "WebDevPython",
@@ -250,7 +268,11 @@ public static class WorkshopsSeeder
                     BuildingNumber: "24"
                 ),
                 ImageUris = new List<string>
-                    { "https://images.unsplash.com/photo-1532618793091-ec5fe9635fbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" },
+                {
+                    "https://images.unsplash.com/photo-1532618793091-ec5fe9635fbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                },
                 Description =
                     "У курсі \"Вступ до машинного навчання\" ви дізнаєтесь про основи машинного навчання, його застосування в реальних задачах та вивчите найпопулярніші бібліотеки машинного навчання в середовищі Python. Курс буде цікавим для всіх, хто бажає ознайомитись зі світом машинного навчання, але не має достатньої підготовки в цій галузі.",
                 Owner = "ML Workshop",
@@ -286,7 +308,11 @@ public static class WorkshopsSeeder
                     BuildingNumber: "1"
                 ),
                 ImageUris = new List<string>
-                    { "https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTF8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" },
+                {
+                    "https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTF8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                },
                 Description =
                     "У курсі \"Програмування на Python\" ви дізнаєтесь про засади програмування на мові Python, яка використовується в багатьох галузях, таких як веб-розробка, машинне навчання, обробка даних та інше. Курс розрахований на початківців, але матиме корисну інформацію і для досвідчених програмістів.",
                 Owner = "Python School",
@@ -322,7 +348,11 @@ public static class WorkshopsSeeder
                     BuildingNumber: "1"
                 ),
                 ImageUris = new List<string>
-                    { "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" },
+                {
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                },
                 Description =
                     "Курс з веб-розробки на JavaScript розрахований на початківців і тих, хто вже має деякий досвід в програмуванні на JavaScript. У ході курсу ви дізнаєтеся про засади розробки веб-додатків на JavaScript, фреймворки та інші інструменти, необхідні для створення сучасних веб-додатків.",
                 Owner = "JS Workshop",
@@ -358,7 +388,11 @@ public static class WorkshopsSeeder
                     BuildingNumber: "10"
                 ),
                 ImageUris = new List<string>
-                    { "https://images.unsplash.com/photo-1531536871726-00b05fd4a644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" },
+                {
+                    "https://images.unsplash.com/photo-1531536871726-00b05fd4a644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    "https://images.unsplash.com/photo-1487724077104-5196c4e819fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZSUyMGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                },
                 Description =
                     "Курс з веб-розробки на мові програмування PHP. Ви дізнаєтесь про створення веб-сайтів, розробку бекенду, підключення баз даних, роботу з фреймворками і багато іншого!",
                 Owner = "WebDev Inc.",
