@@ -37,7 +37,7 @@ export const FilterProvider = ({ children }) => {
       value = parseInt(e.target.dataset.id);
     }
     if (name === 'minAge' || name === 'maxAge') {
-      value = Number(value)
+      value = value === '' ? initialState.filters[name] : Number(value)
     }
     if (name.startsWith('workingDays')) {
       const days = state.filters.workingDays
@@ -46,7 +46,7 @@ export const FilterProvider = ({ children }) => {
       value = days
     }
     if (name === 'maxPrice' || name === 'minPrice') {
-      value = Number(value)
+      value = value === '' ? initialState.filters[name] : Number(value)
     }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
