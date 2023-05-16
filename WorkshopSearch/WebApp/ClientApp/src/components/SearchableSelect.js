@@ -57,6 +57,7 @@ const SearchableSelect = ({ name, placeholder, value, onChange }) => {
             ref={selectRef}
             options={filteredOptions}
             placeholder={placeholder}
+            noOptionsMessage={() => "Відсутні співпадіння"}
             value={selectedOption}
             onChange={handleChange}
             onInputChange={setInputValue}

@@ -42,7 +42,7 @@ const Filters = () => {
                     <div className='form-control'>
                         <SearchableSelect
                             name='regionWithCity'
-                            placeholder='Select an option'
+                            placeholder='Київ'
                             value={regionWithCity}
                             onChange={updateFilters}
                         />
