@@ -495,7 +495,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 12,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1510832842230-87253f48d74f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1510832842230-87253f48d74f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
             },
             new()
             {
@@ -537,7 +538,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 9,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1456086272160-b28b0645b729?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1456086272160-b28b0645b729?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80"
             },
             new()
             {
@@ -579,7 +581,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 10,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=758&q=80"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=758&q=80"
             },
             new()
             {
@@ -621,7 +624,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 8,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1549289524-06cf8837ace5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1549289524-06cf8837ace5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
             },
             new()
             {
@@ -663,7 +667,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 11,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGFpbnRpbmd8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGFpbnRpbmd8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -705,7 +710,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 15,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGFpbnRpbmd8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGFpbnRpbmd8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -747,7 +753,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 9,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -789,7 +796,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 7,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1531913764164-f85c52e6e654?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1531913764164-f85c52e6e654?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -831,7 +839,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 9,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -873,7 +882,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 8,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1520420097861-e4959843b682?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1520420097861-e4959843b682?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -915,7 +925,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 10,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1541753866388-0b3c701627d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1541753866388-0b3c701627d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -957,7 +968,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 13,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -999,7 +1011,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 11,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/flagged/photo-1567934150921-7632371abb32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/flagged/photo-1567934150921-7632371abb32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -1041,7 +1054,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 9,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1615339725569-80172615f345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1615339725569-80172615f345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -1083,7 +1097,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 11,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1531489956451-20957fab52f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1531489956451-20957fab52f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=1000&q=60"
             },
             new()
             {
@@ -1125,7 +1140,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 15,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1613746203812-717e6e5db3da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1613746203812-717e6e5db3da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
             },
             new()
             {
@@ -1167,7 +1183,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 12,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1553949345-eb786bb3f7ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1553949345-eb786bb3f7ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
             },
             new()
             {
@@ -1209,7 +1226,8 @@ public static class WorkshopsSeeder
                 ReviewsCount = 13,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
             },
             new()
             {
@@ -1251,8 +1269,101 @@ public static class WorkshopsSeeder
                 ReviewsCount = 10,
                 EnrollmentStatus = EnrollmentStatus.Open,
                 Directions = new List<Direction> { directions[2] },
-                CoverImageUri = "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
-            }
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fHBhaW50aW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+            },
+            new()
+            {
+                Id = new WorkshopId(Guid.NewGuid()),
+                Title = "Гурток програмування на Java",
+                ContactInformation = new ContactInfo
+                (
+                    Email: "javaclub@gmail.com",
+                    ContactLinks: new List<string>
+                    {
+                        "https://www.facebook.com/javaclub",
+                        "https://www.instagram.com/javaclub"
+                    },
+                    PhoneNumber: "+380000000024"
+                ),
+                Constrains = new WorkshopConstrains
+                (
+                    MinAge: 14,
+                    MaxAge: 18,
+                    Price: 1500,
+                    Days: DaysBitMask.Tuesday | DaysBitMask.Thursday,
+                    DaysCount: 2
+                ),
+                Address = new Address
+                (
+                    Region: "Львів",
+                    City: "Львів",
+                    Street: "Шевченка",
+                    BuildingNumber: "10"
+                ),
+                ImageUris = new List<string>
+                {
+                    "https://images.unsplash.com/photo-1608306448197-e83633f1261c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHByb2dyYW1taW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+                },
+                Description =
+                    "Програмування на мові Java для підлітків. Вивчення основ програмування та розробка веб-додатків на Java.",
+                Owner = "Іванова Марія",
+                Rating = 4.5f,
+                ReviewsCount = 10,
+                EnrollmentStatus = EnrollmentStatus.Open,
+                Directions = new List<Direction>
+                {
+                    directions[0]
+                },
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1608306448197-e83633f1261c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHByb2dyYW1taW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+            },
+            new()
+            {
+                Id = new WorkshopId(Guid.NewGuid()),
+                Title = "Web Development Workshop",
+                ContactInformation = new ContactInfo
+                (
+                    Email: "webworkshop@example.com",
+                    ContactLinks: new List<string>
+                    {
+                        "https://www.facebook.com/webworkshop",
+                        "https://www.instagram.com/webworkshop"
+                    },
+                    PhoneNumber: "+380000000025"
+                ),
+                Constrains = new WorkshopConstrains
+                (
+                    MinAge: 16,
+                    MaxAge: 30,
+                    Price: 3000,
+                    Days: DaysBitMask.Monday | DaysBitMask.Wednesday | DaysBitMask.Friday,
+                    DaysCount: 3
+                ),
+                Address = new Address
+                (
+                    Region: "Львів",
+                    City: "Львів",
+                    Street: "Шевченка",
+                    BuildingNumber: "20"
+                ),
+                ImageUris = new List<string>
+                {
+                    "https://images.unsplash.com/photo-1528372444006-1bfc81acab02?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fHByb2dyYW1taW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+                },
+                Description =
+                    "Вивчення розробки веб-додатків з використанням HTML, CSS та JavaScript. Реалізація проектів з використанням сучасних фреймворків та інструментів.",
+                Owner = "Web Workshop Ltd.",
+                Rating = 4.2f,
+                ReviewsCount = 5,
+                EnrollmentStatus = EnrollmentStatus.Open,
+                Directions = new List<Direction>
+                {
+                    directions[0]
+                },
+                CoverImageUri =
+                    "https://images.unsplash.com/photo-1528372444006-1bfc81acab02?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fHByb2dyYW1taW5nfGVufDB8fDB8fHwy&auto=format&fit=crop&w=500&q=60"
+            },
         };
     }
 }
