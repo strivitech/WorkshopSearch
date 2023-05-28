@@ -12,6 +12,7 @@ import {
     GET_SINGLE_PRODUCT_ERROR,
 } from '../actions';
 import {useFilterContext} from './filter_context';
+import { toast } from 'react-toastify';
 
 const initialState = {
     isSidebarOpen: false,
@@ -165,10 +166,16 @@ export const ProductsProvider = ({children}) => {
         dispatch({ type: GET_PRODUCTS_BEGIN });
         try {
             const response = await axios.get(`${url}&from=${from}&size=${size}`);
+            if (response.status < 200 || response.status >= 300) {
+                throw new Error('Server responded with an error status');
+            }
             const data = response.data;
             dispatch({ type: GET_PRODUCTS_SUCCESS, payload: data });
         } catch (error) {
             dispatch({ type: GET_PRODUCTS_ERROR });
+            toast.error("Виникла помилка. Перевірте введені дані.", {
+                position: toast.POSITION.TOP_CENTER
+            });
         }
     };
 
@@ -176,10 +183,16 @@ export const ProductsProvider = ({children}) => {
         dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
         try {
             const response = await axios.get(url);
+            if (response.status < 200 || response.status >= 300) {
+                throw new Error('Server responded with an error status');
+            }
             const singleProduct = response.data;
             dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
         } catch (error) {
             dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+            toast.error("Виникла помилка. Перевірте введені дані.", {
+                position: toast.POSITION.TOP_CENTER
+            });
         }
     };
 
