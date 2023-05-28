@@ -46,7 +46,15 @@ const SearchableSelect = ({ name, placeholder, value, onChange }) => {
                 value: selectedOption.value,
             },
         });
+        localStorage.setItem('selectedOption', selectedOption.value);
     };
+
+    useEffect(() => {
+        const selectedValue = localStorage.getItem('selectedOption');
+        if (selectedValue) {
+            setInputValue(selectedValue);
+        }
+    }, []);
 
     const selectedOption = filteredOptions.find(
         (option) => option.value === value
